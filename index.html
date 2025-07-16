@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Log of Operations</title>
+		<link
+			rel="stylesheet"
+			href="styles.css" />
+	</head>
+	<body>
+		<div class="logbook-container">
+			<h1 class="logbook-title">LOG OF OPERATIONS</h1>
+
+			<form id="log-form">
+				<table class="logbook-table">
+					<thead>
+						<tr>
+							<th rowspan="2">DATE/TIME (UTC)</th>
+							<th colspan="6">SHIP'S POSITION</th>
+							<th colspan="4">TIME (HOURS)</th>
+							<th rowspan="2">WEATHER & VISIBILITY</th>
+							<th rowspan="2">WIND & SEA CONDITION</th>
+							<th colspan="2">RADAR PERFORMANCE CHECK</th>
+							<th rowspan="2">
+								REMARKS<br /><span class="sub"
+									>(failures,<br />maintenance)</span
+								>
+							</th>
+							<th rowspan="2">OOW SIGNATURE</th>
+						</tr>
+
+						<tr>
+							<th
+								colspan="3"
+								class="min-w-7">
+								Latitude
+							</th>
+							<th
+								colspan="3"
+								class="min-w-7">
+								Longitude
+							</th>
+							<th class="min-w-7">RUN (X-BAND)</th>
+							<th class="min-w-7">TOTAL (X-BAND)</th>
+							<th class="min-w-7">RUN (S-BAND)</th>
+							<th class="min-w-7">TOTAL (S-BAND)</th>
+							<th>TRANSMITTER SYSTEM</th>
+							<th>RECEIVER SYSTEM</th>
+						</tr>
+					</thead>
+					<tbody id="log-entries">
+						<tr>
+							<td>
+								<input
+									type="datetime-local"
+									name="datetime" />
+							</td>
+							<td>
+								<input
+									type="text"
+									name="latitude-degrees"
+									placeholder="53°" />
+							</td>
+							<td>
+								<input
+									type="text"
+									name="latitude-minutes"
+									placeholder="20.5'" />
+							</td>
+							<td>
+								<input
+									type="text"
+									name="latitude-sign"
+									placeholder="N" />
+							</td>
+							<td>
+								<input
+									type="text"
+									name="longitude-degrees"
+									placeholder="004°" />
+							</td>
+							<td>
+								<input
+									type="text"
+									name="longitude-minutes"
+									placeholder="02.5'" />
+							</td>
+							<td>
+								<input
+									type="text"
+									name="longitude-sign"
+									placeholder="W" />
+							</td>
+							<td>
+								<input
+									type="number"
+									name="run1"
+									step="0.1" />
+							</td>
+							<td>
+								<input
+									type="number"
+									name="total1"
+									step="0.1" />
+							</td>
+							<td>
+								<input
+									type="number"
+									name="run2"
+									step="0.1" />
+							</td>
+							<td>
+								<input
+									type="number"
+									name="total2"
+									step="0.1" />
+							</td>
+							<td>
+								<input
+									type="text"
+									name="weather" />
+							</td>
+							<td>
+								<input
+									type="text"
+									name="sea" />
+							</td>
+							<td>
+								<input
+									type="text"
+									name="transmitter" />
+							</td>
+							<td>
+								<input
+									type="text"
+									name="receiver" />
+							</td>
+							<td>
+								<input
+									type="text"
+									name="remarks" />
+							</td>
+							<td>
+								<input
+									type="text"
+									name="signature" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="logbook-footer">
+					<button type="submit">Add Entry</button>
+				</div>
+			</form>
+		</div>
+
+		<script src="main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+body {
+	font-family: "Times New Roman", serif;
+	background: #fff;
+	padding: 20px;
+}
+
+.logbook-container {
+	max-width: 100%;
+	margin: auto;
+	padding: 12px;
+	border: 2px solid black;
+}
+
+.logbook-title {
+	text-align: center;
+	font-size: 24px;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+
+table.logbook-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+.logbook-table th,
+.logbook-table td {
+	border: 1px solid black;
+	padding: 5px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.logbook-table input {
+	width: 100%;
+	border: none;
+	text-align: center;
+	font-family: inherit;
+	font-size: 14px;
+	background: transparent;
+}
+
+.logbook-table .sub {
+	font-size: 10px;
+	font-style: italic;
+}
+.min-w-7 {
+	min-width: 7rem;
+}
+
+.logbook-footer {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.logbook-footer button {
+	background: #333;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	font-weight: bold;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+.logbook-footer button:hover {
+	background: #555;
+}
