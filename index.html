@@ -15,10 +15,10 @@
 				<table class="logbook-table">
 					<thead>
 						<tr>
-							<th rowspan="2">DATE/TIME (UTC)</th>
+							<th rowspan="3">DATE/TIME (UTC)</th>
 							<th colspan="6">SHIP'S POSITION</th>
-							<th colspan="4">TIME (HOURS)</th>
-							<th rowspan="2">WEATHER & VISIBILITY</th>
+							<th colspan="6">TIME (HOURS)</th>
+							<th rowspan="3">WEATHER & VISIBILITY</th>
 							<th rowspan="2">WIND & SEA CONDITION</th>
 							<th colspan="2">RADAR PERFORMANCE CHECK</th>
 							<th rowspan="2">
@@ -40,12 +40,24 @@
 								class="min-w-7">
 								Longitude
 							</th>
-							<th class="min-w-7">RUN (X-BAND)</th>
-							<th class="min-w-7">TOTAL (X-BAND)</th>
-							<th class="min-w-7">RUN (S-BAND)</th>
-							<th class="min-w-7">TOTAL (S-BAND)</th>
+							<th rowspan="2" >RUN (X-BAND) hours</th>
+							<th colspan="2" class="min-w-7">TOTAL (X-BAND) hours</th>
+							<th rowspan="2" >RUN (S-BAND) hours</th>
+							<th colspan="2" class="min-w-7">TOTAL (S-BAND) hours</th>
 							<th>TRANSMITTER SYSTEM</th>
 							<th>RECEIVER SYSTEM</th>
+						</tr>
+						<tr>
+							<th>Degrees</th>
+							<th>Minutes</th>
+							<th>Sign</th>
+                            <th>Degrees</th>
+							<th>Minutes</th>
+							<th>Sign</th>
+							<th>TX</th>
+							<th>TTL</th>
+                            <th>TX</th>
+							<th>TTL</th>
 						</tr>
 					</thead>
 					<tbody id="log-entries">
