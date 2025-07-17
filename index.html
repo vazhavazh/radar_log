@@ -16,17 +16,19 @@
 					<thead>
 						<tr>
 							<th rowspan="3">DATE/TIME (UTC)</th>
-							<th colspan="6">SHIP'S POSITION</th>
-							<th colspan="6">TIME (HOURS)</th>
-							<th rowspan="3">WEATHER & VISIBILITY</th>
-							<th rowspan="2">WIND & SEA CONDITION</th>
-							<th colspan="2">RADAR PERFORMANCE CHECK</th>
-							<th rowspan="2">
+							<th colspan="6">Ship's Position</th>
+							<th colspan="6">Time (hours)</th>
+							<th rowspan="3">State of Weather</th>
+							<th rowspan="3">Visibility</th>
+							<th rowspan="3">Wind Direction</th>
+							<th rowspan="3">Sea Condition</th>
+							<th colspan="4">RADAR PERFORMANCE CHECK</th>
+							<th rowspan="3">
 								REMARKS<br /><span class="sub"
 									>(failures,<br />maintenance)</span
 								>
 							</th>
-							<th rowspan="2">OOW SIGNATURE</th>
+							<th rowspan="3">OOW SIGNATURE</th>
 						</tr>
 
 						<tr>
@@ -40,24 +42,48 @@
 								class="min-w-7">
 								Longitude
 							</th>
-							<th rowspan="2" >RUN (X-BAND) hours</th>
-							<th colspan="2" class="min-w-7">TOTAL (X-BAND) hours</th>
-							<th rowspan="2" >RUN (S-BAND) hours</th>
-							<th colspan="2" class="min-w-7">TOTAL (S-BAND) hours</th>
-							<th>TRANSMITTER SYSTEM</th>
-							<th>RECEIVER SYSTEM</th>
+							<th
+								class="min-w-4"
+								rowspan="2">
+								RUN <br />
+								(X-BAND)
+							</th>
+							<th
+								colspan="2"
+								class="min-w-7">
+								TOTAL <br />
+								(X-BAND)
+							</th>
+							<th
+								class="min-w-4"
+								rowspan="2">
+								RUN <br />
+								(S-BAND)
+							</th>
+							<th
+								colspan="2"
+								class="min-w-7">
+								TOTAL <br />
+								(S-BAND)
+							</th>
+							<th colspan="2">Transmitter System (dB)</th>
+							<th colspan="2">Receiver System (dB)</th>
 						</tr>
 						<tr>
 							<th>Degrees</th>
 							<th>Minutes</th>
 							<th>Sign</th>
-                            <th>Degrees</th>
+							<th>Degrees</th>
 							<th>Minutes</th>
 							<th>Sign</th>
 							<th>TX</th>
 							<th>TTL</th>
-                            <th>TX</th>
+							<th>TX</th>
 							<th>TTL</th>
+							<th>X (db)</th>
+							<th>S (db)</th>
+							<th>X (db)</th>
+							<th>S (db)</th>
 						</tr>
 					</thead>
 					<tbody id="log-entries">
@@ -80,10 +106,19 @@
 									placeholder="20.5'" />
 							</td>
 							<td>
-								<input
-									type="text"
-									name="latitude-sign"
-									placeholder="N" />
+								<select
+									name="latitude"
+									id="latitude-sign">
+									<option
+										value=""
+										disabled
+										selected
+										hidden>
+										
+									</option>
+									<option value="N">N</option>
+									<option value="S">S</option>
+								</select>
 							</td>
 							<td>
 								<input
@@ -98,34 +133,55 @@
 									placeholder="02.5'" />
 							</td>
 							<td>
-								<input
-									type="text"
-									name="longitude-sign"
-									placeholder="W" />
+								<select
+									name="longitude"
+									id="longitude-sign">
+									<option
+										value=""
+										disabled
+										selected
+										hidden>
+										
+									</option>
+									<option value="E">E</option>
+									<option value="W">W</option>
+								</select>
 							</td>
 							<td>
 								<input
 									type="number"
-									name="run1"
-									step="0.1" />
+									name="runXBand"
+									placeholder="hours" />
 							</td>
 							<td>
 								<input
 									type="number"
-									name="total1"
-									step="0.1" />
+									name="totalXBandTx"
+									placeholder="hours" />
 							</td>
 							<td>
 								<input
 									type="number"
-									name="run2"
-									step="0.1" />
+									name="totalXBandTTL"
+									placeholder="hours" />
 							</td>
 							<td>
 								<input
 									type="number"
-									name="total2"
-									step="0.1" />
+									name="runSBand"
+									placeholder="hours" />
+							</td>
+							<td>
+								<input
+									type="number"
+									name="totalXBandTx"
+									placeholder="hours" />
+							</td>
+							<td>
+								<input
+									type="number"
+									name="totalXBandTTL"
+									placeholder="hours" />
 							</td>
 							<td>
 								<input
@@ -135,17 +191,46 @@
 							<td>
 								<input
 									type="text"
-									name="sea" />
+									name="visibility" />
 							</td>
 							<td>
 								<input
 									type="text"
-									name="transmitter" />
+									name="wind"
+									placeholder="NE" />
 							</td>
 							<td>
 								<input
 									type="text"
-									name="receiver" />
+									name="seaCondition" />
+							</td>
+							<td>
+								<input
+									class="min-w-2"
+									type="number"
+									name="transmitterX"
+									placeholder="dB" />
+							</td>
+							<td>
+								<input
+									class="min-w-2"
+									type="number"
+									name="transmitterS"
+									placeholder="dB" />
+							</td>
+							<td>
+								<input
+									class="min-w-2"
+									type="number"
+									name="receiverX"
+									placeholder="dB" />
+							</td>
+							<td>
+								<input
+									class="min-w-2"
+									type="number"
+									name="receiverS"
+									placeholder="dB" />
 							</td>
 							<td>
 								<input
@@ -162,11 +247,13 @@
 				</table>
 
 				<div class="logbook-footer">
-					<button type="submit">Add Entry</button>
+					<button type="submit">Add Record</button>
 				</div>
 			</form>
 		</div>
 
-		<script src="main.js"></script>
+		<script
+			type="module"
+			src="js/main.js"></script>
 	</body>
 </html>

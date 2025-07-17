@@ -1,7 +1,7 @@
 body {
 	font-family: "Times New Roman", serif;
 	background: #fff;
-	padding: 20px;
+	padding: 4px;
 }
 
 .logbook-container {
@@ -21,7 +21,7 @@ body {
 table.logbook-table {
 	width: 100%;
 	border-collapse: collapse;
-	font-size: 14px;
+	font-size: 13px;
 }
 
 .logbook-table th,
@@ -31,19 +31,28 @@ table.logbook-table {
 	text-align: center;
 	vertical-align: middle;
 }
+.logbook-table td {
+    height: 18px;
+}
 
 .logbook-table input {
 	width: 100%;
 	border: none;
 	text-align: center;
 	font-family: inherit;
-	font-size: 14px;
+	font-size: 12px;
 	background: transparent;
 }
 
 .logbook-table .sub {
 	font-size: 10px;
 	font-style: italic;
+}
+.min-w-2 {
+    min-width: 2rem;
+}
+.min-w-4 {
+	min-width: 4rem;
 }
 .min-w-7 {
 	min-width: 7rem;
