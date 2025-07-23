@@ -1,5 +1,4 @@
-
-export function formSubmit() {
+export const formSubmit = () => {
 	const form = document.getElementById("log-form");
 	const tbody = document.getElementById("log-entries");
 
@@ -17,4 +16,4 @@ export function formSubmit() {
 
 		tbody.appendChild(newRow);
 	});
-}
+};

@@ -2,6 +2,36 @@ body {
 	font-family: "Times New Roman", serif;
 	background: #fff;
 	padding: 4px;
+	margin: 0;
+}
+
+[data-tab-content] {
+	display: none;
+}
+
+.active[data-tab-content] {
+	display: block;
+}
+
+.tabs {
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border-bottom: 4px solid #333;
+}
+.tab {
+	cursor: pointer;
+	padding: 10px;
+	border-radius: 6px;
+}
+
+.tab.active {
+	background-color: #ccc;
+}
+.tab:hover {
+	background-color: #aaa;
 }
 
 .logbook-container {
@@ -32,7 +62,7 @@ table.logbook-table {
 	vertical-align: middle;
 }
 .logbook-table td {
-    height: 18px;
+	height: 18px;
 }
 
 .logbook-table input {
@@ -49,7 +79,7 @@ table.logbook-table {
 	font-style: italic;
 }
 .min-w-2 {
-    min-width: 2rem;
+	min-width: 2rem;
 }
 .min-w-4 {
 	min-width: 4rem;
