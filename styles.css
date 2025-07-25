@@ -3,6 +3,9 @@ body {
 	background: #fff;
 	padding: 4px;
 	margin: 0;
+	padding-left: 32px;
+	padding-right: 32px;
+	padding-top: 16px;
 }
 
 [data-tab-content] {
@@ -20,11 +23,13 @@ body {
 	margin: 0;
 	padding: 0;
 	border-bottom: 4px solid #333;
+	
 }
 .tab {
 	cursor: pointer;
 	padding: 10px;
 	border-radius: 6px;
+	margin-bottom: 8px;
 }
 
 .tab.active {
@@ -106,3 +111,10 @@ table.logbook-table {
 .logbook-footer button:hover {
 	background: #555;
 }
+
+
+/* #blind-sector-diagram {
+  width: 400px;
+  height: 400px;
+  border: 1px solid gray;
+} */
