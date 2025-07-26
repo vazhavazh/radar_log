@@ -23,7 +23,6 @@ body {
 	margin: 0;
 	padding: 0;
 	border-bottom: 4px solid #333;
-	
 }
 .tab {
 	cursor: pointer;
@@ -112,9 +111,22 @@ table.logbook-table {
 	background: #555;
 }
 
+.radars-container {
+	display: flex;
+	gap: 24px;
+	width: 100%;
+	justify-content: center;
 
-/* #blind-sector-diagram {
-  width: 400px;
-  height: 400px;
-  border: 1px solid gray;
-} */
+	h3 {
+		text-align: center;
+	}
+}
+
+h2 {
+	text-align: center;
+}
+.flex-container-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
