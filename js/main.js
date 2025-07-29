@@ -3,7 +3,7 @@ import { switchTabs } from "./switchTabs.js";
 import { radarBlindSectorDiagram1 } from "./radarBlindSector.js";
 import { radarBlindSectorDiagram2 } from "./radarBlindSector.js";
 import { initAllForms, clearAllFormsData } from "./particularsFormHandler.js";
-
+import { analytic } from "./analytic.js";
 document.addEventListener("DOMContentLoaded", () => {
 	// Инициализируем формы (создает глобальные функции)
 	initAllForms();
@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	formSubmit();
 	switchTabs();
+	analytic();
 });
 
-// clearAllFormsData(); // 
+// clearAllFormsData(); //
