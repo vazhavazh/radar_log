@@ -63,9 +63,31 @@
 										placeholder="IMO NUMBER" />
 								</td>
 							</tr>
+							<tr>
+								<th>START FROM</th>
+								<td>
+									<input
+										type="date"
+										name="start-from"
+										placeholder="date" />
+								</td>
+							</tr>
 						</table>
-						<h2>Radar Particulars</h2>
-
+						<div class="logbook-footer">
+							<button
+								id="general-particulars-btn-edit"
+								type="submit">
+								Edit
+							</button>
+							<button
+								id="general-particulars-btn-save"
+								type="submit">
+								Save
+							</button>
+						</div>
+					</form>
+					<h2>Radar Particulars</h2>
+					<form id="radar-particulars">
 						<div class="flex-container-center">
 							<table
 								border="1"
@@ -216,12 +238,21 @@
 								</tbody>
 							</table>
 						</div>
-						<h2>Blind Sector</h2>
+						<div class="logbook-footer">
+							<button
+								id="installation-btn-save"
+								type="submit">
+								Save
+							</button>
+						</div>
+					</form>
+					<h2>Blind Sector</h2>
+					<form id="blind-sectors">
 						<div class="radars-container">
 							<div>
 								<h3>S-BAND</h3>
 								<div id="blind-sector-diagram1"></div>
-								<div>
+								<div class="flex-container-center flex-col">
 									<div style="margin-top: 20px">
 										<label for="startAngleInput1"
 											>Starting Angle (degrees):</label
@@ -244,6 +275,7 @@
 											min="1"
 											max="360" />
 									</div>
+
 									<button
 										id="addSectorButton1"
 										style="margin-top: 10px"
@@ -260,45 +292,371 @@
 							<div>
 								<h3>X-BAND</h3>
 								<div id="blind-sector-diagram2"></div>
-								<div>
+								<div class="flex-container-center flex-col">
 									<div style="margin-top: 20px">
-										<label for="startAngleInput"
+										<label for="startAngleInput2"
 											>Starting Angle (degrees):</label
 										>
 										<input
 											type="number"
-											id="startAngleInput"
+											id="startAngleInput2"
 											value="0"
 											min="0"
 											max="359" />
 									</div>
 									<div style="margin-top: 10px">
-										<label for="sectorWidthInput"
+										<label for="sectorWidthInput2"
 											>Sector's width (degrees):</label
 										>
 										<input
 											type="number"
-											id="sectorWidthInput"
+											id="sectorWidthInput2"
 											value="15"
 											min="1"
 											max="360" />
 									</div>
 									<button
-										id="addSectorButton"
+										id="addSectorButton2"
 										style="margin-top: 10px"
 										type="button">
 										Add sector
 									</button>
 									<button
 										type="button"
-										id="removeLastSectorButton">
+										id="removeLastSectorButton2">
 										Delete last sector
 									</button>
 								</div>
 							</div>
 						</div>
+					</form>
+					<form id="form-installation">
+						<div class="installation-table-container">
+							<h2>Installation</h2>
+							<table class="installation-table">
+								<thead>
+									<tr>
+										<th
+											rowspan="2"
+											style="width: 300px"></th>
+										<th class="radar-header">
+											RADAR I<br /><span class="band-label">S-BAND</span>
+										</th>
+										<th class="radar-header">
+											RADAR II<br /><span class="band-label">X-BAND</span>
+										</th>
+										<th class="radar-header">RADAR III</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="row-header">
+											Maximum Reading of Performance Monitor (Nautical Miles)
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												placeholder="" />
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												placeholder="" />
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												placeholder="" />
+										</td>
+									</tr>
+									<tr>
+										<td class="sub-row">or Test Meter.</td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="sub-row">Transmission</td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="sub-row">Reception</td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="sub-row">Transmission & Reception</td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="row-header section-header">
+											Display Presentations*
+										</td>
+										<td class="section-header"></td>
+										<td class="section-header"></td>
+										<td class="section-header"></td>
+									</tr>
+									<tr>
+										<td class="sub-row">Relative Motion, Unstabilized</td>
+										<td class="checkbox-cell">
+											<input
+												type="checkbox"
+												checked />
+										</td>
+										<td class="checkbox-cell">
+											<input
+												type="checkbox"
+												checked />
+										</td>
+										<td class="checkbox-cell"><input type="checkbox" /></td>
+									</tr>
+									<tr>
+										<td class="sub-row">
+											Relative Motion, North-up Stabilized
+										</td>
+										<td class="checkbox-cell">
+											<input
+												type="checkbox"
+												checked />
+										</td>
+										<td class="checkbox-cell">
+											<input
+												type="checkbox"
+												checked />
+										</td>
+										<td class="checkbox-cell"><input type="checkbox" /></td>
+									</tr>
+									<tr>
+										<td class="sub-row">
+											Relative Motion, Course-up Stabilized
+										</td>
+										<td class="checkbox-cell">
+											<input
+												type="checkbox"
+												checked />
+										</td>
+										<td class="checkbox-cell">
+											<input
+												type="checkbox"
+												checked />
+										</td>
+										<td class="checkbox-cell"><input type="checkbox" /></td>
+									</tr>
+									<tr>
+										<td class="sub-row">True Motion, North-up Stabilized</td>
+										<td class="checkbox-cell">
+											<input
+												type="checkbox"
+												checked />
+										</td>
+										<td class="checkbox-cell">
+											<input
+												type="checkbox"
+												checked />
+										</td>
+										<td class="checkbox-cell"><input type="checkbox" /></td>
+									</tr>
+									<tr>
+										<td class="sub-row">True Motion, Course-up, Stabilized</td>
+										<td class="checkbox-cell">
+											<input
+												type="checkbox"
+												checked />
+										</td>
+										<td class="checkbox-cell">
+											<input
+												type="checkbox"
+												checked />
+										</td>
+										<td class="checkbox-cell"><input type="checkbox" /></td>
+									</tr>
+									<tr>
+										<td class="row-header section-header">ARPA Presentation</td>
+										<td class="section-header"></td>
+										<td class="section-header"></td>
+										<td class="section-header"></td>
+									</tr>
+									<tr>
+										<td class="sub-row">
+											Maximum Number of Targets available for Manual Acquisition
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												value="100" />
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												value="100" />
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												placeholder="" />
+										</td>
+									</tr>
+									<tr>
+										<td class="sub-row">
+											Maximum Number of Targets available for Automatic
+											Acquisition
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												value="100" />
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												value="100" />
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												placeholder="" />
+										</td>
+									</tr>
+									<tr>
+										<td class="sub-row">
+											Maximum Number of Targets available for Tracking
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												value="ARPA 4/AIS 1" />
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												value="ARPA 4/AIS 1" />
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												placeholder="" />
+										</td>
+									</tr>
+									<tr>
+										<td class="row-header">
+											Range Scales with Vector Facilities
+										</td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="sub-row">Vector Length in Minutes</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												value="1-60" />
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												value="1-60" />
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												placeholder="" />
+										</td>
+									</tr>
+									<tr>
+										<td class="sub-row">
+											CPA Alarms Setting in Nautical Miles
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												placeholder="" />
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												placeholder="" />
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												placeholder="" />
+										</td>
+									</tr>
+									<tr>
+										<td class="sub-row">TCPA Alarm Settings in Minutes</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												placeholder="" />
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												placeholder="" />
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												placeholder="" />
+										</td>
+									</tr>
+									<tr>
+										<td class="row-header">Number of Guard Zones</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												value="2" />
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												value="2" />
+										</td>
+										<td>
+											<input
+												type="text"
+												class="text-input"
+												placeholder="" />
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 						<div class="logbook-footer">
-							<button type="submit">Save</button>
+							<button
+								id="installation-btn-save"
+								type="submit">
+								Save
+							</button>
 						</div>
 					</form>
 				</div>
@@ -311,382 +669,388 @@
 					<h1 class="logbook-title">LOG OF OPERATIONS</h1>
 
 					<form id="log-form">
-						<table class="logbook-table">
-							<thead>
-								<tr>
-									<th rowspan="3">DATE/TIME (UTC)</th>
-									<th colspan="6">Ship's Position</th>
-									<th colspan="6">Time (hours)</th>
-									<th rowspan="3">State of Weather</th>
-									<th rowspan="3">Visibility</th>
-									<th rowspan="3">Wind Direction</th>
-									<th rowspan="3">Sea Condition</th>
-									<th colspan="4">RADAR PERFORMANCE CHECK</th>
-									<th rowspan="3">
-										REMARKS<br /><span class="sub"
-											>(failures,<br />maintenance)</span
-										>
-									</th>
-									<th rowspan="3">OOW SIGNATURE</th>
-								</tr>
+						
+							<table class="logbook-table">
+								<thead>
+									<tr>
+										<th rowspan="3">DATE/TIME (UTC)</th>
+										<th colspan="6">Ship's Position</th>
+										<th colspan="6">Time (hours)</th>
+										<th rowspan="3">State of Weather</th>
+										<th rowspan="3">Visibility</th>
+										<th rowspan="3">Wind Direction</th>
+										<th rowspan="3">Sea Condition</th>
+										<th colspan="4">RADAR PERFORMANCE CHECK</th>
+										<th rowspan="3">
+											REMARKS<br /><span class="sub"
+												>(failures,<br />maintenance)</span
+											>
+										</th>
+										<th rowspan="3">OOW SIGNATURE</th>
+									</tr>
 
-								<tr>
-									<th
-										colspan="3"
-										class="min-w-7">
-										Latitude
-									</th>
-									<th
-										colspan="3"
-										class="min-w-7">
-										Longitude
-									</th>
-									<th
-										class="min-w-4"
-										rowspan="2">
-										RUN <br />
-										(X-BAND)
-									</th>
-									<th
-										colspan="2"
-										class="min-w-7">
-										TOTAL <br />
-										(X-BAND)
-									</th>
-									<th
-										class="min-w-4"
-										rowspan="2">
-										RUN <br />
-										(S-BAND)
-									</th>
-									<th
-										colspan="2"
-										class="min-w-7">
-										TOTAL <br />
-										(S-BAND)
-									</th>
-									<th colspan="2">Transmitter System (dB)</th>
-									<th colspan="2">Receiver System (dB)</th>
-								</tr>
-								<tr>
-									<th>Degrees</th>
-									<th>Minutes</th>
-									<th>Sign</th>
-									<th>Degrees</th>
-									<th>Minutes</th>
-									<th>Sign</th>
-									<th>TX</th>
-									<th>TTL</th>
-									<th>TX</th>
-									<th>TTL</th>
-									<th>X (db)</th>
-									<th>S (db)</th>
-									<th>X (db)</th>
-									<th>S (db)</th>
-								</tr>
-							</thead>
-							<tbody id="log-entries">
-								<tr>
-									<td>
-										<input
-											type="datetime-local"
-											name="datetime" />
-									</td>
-									<td>
-										<input
-											type="text"
-											name="latitude-degrees"
-											placeholder="53°" />
-									</td>
-									<td>
-										<input
-											type="text"
-											name="latitude-minutes"
-											placeholder="20.5'" />
-									</td>
-									<td>
-										<select
-											name="latitude"
-											id="latitude-sign">
-											<option
-												value=""
-												disabled
-												selected
-												hidden></option>
-											<option value="N">N</option>
-											<option value="S">S</option>
-										</select>
-									</td>
-									<td>
-										<input
-											type="text"
-											name="longitude-degrees"
-											placeholder="004°" />
-									</td>
-									<td>
-										<input
-											type="text"
-											name="longitude-minutes"
-											placeholder="02.5'" />
-									</td>
-									<td>
-										<select
-											name="longitude"
-											id="longitude-sign">
-											<option
-												value=""
-												disabled
-												selected
-												hidden></option>
-											<option value="E">E</option>
-											<option value="W">W</option>
-										</select>
-									</td>
-									<td>
-										<input
-											type="number"
-											name="runXBand"
-											placeholder="hours" />
-									</td>
-									<td>
-										<input
-											type="number"
-											name="totalXBandTx"
-											placeholder="hours" />
-									</td>
-									<td>
-										<input
-											type="number"
-											name="totalXBandTTL"
-											placeholder="hours" />
-									</td>
-									<td>
-										<input
-											type="number"
-											name="runSBand"
-											placeholder="hours" />
-									</td>
-									<td>
-										<input
-											type="number"
-											name="totalXBandTx"
-											placeholder="hours" />
-									</td>
-									<td>
-										<input
-											type="number"
-											name="totalXBandTTL"
-											placeholder="hours" />
-									</td>
-									<td>
-										<input
-											list="weather-options"
-											name="weather"
-											placeholder="b"
-											maxlength="3" />
-										<datalist id="weather-options">
-											<option value="b">
-												Blue sky (less than 1/3 covered)
-											</option>
-											<option value="be">Sky partly cloudy (1/3 to 2/3)</option>
-											<option value="c">
-												Generally cloudy (more than 2/3)
-											</option>
-											<option value="0">
-												Overcast sky (+ stratus or nimbus)
-											</option>
-											<option value="m">Mist</option>
-											<option value="d">Drizzle, or fine rain</option>
-											<option value="r">Rain</option>
-											<option value="e">Wet air without rain falling</option>
-											<option value="rs">Sleet (rain and snow together)</option>
-											<option value="s">Snow</option>
-											<option value="f">Fog</option>
-											<option value="fe">Wet fog</option>
-											<option value="u">Ugly, threatening sky</option>
-											<option value="g">Gloomy</option>
-											<option value="V">
-												Exceptional visibility (abnormally clear)
-											</option>
-											<option value="h">Hail</option>
-											<option value="w">Dew</option>
-											<option value="i">Intermittent</option>
-											<option value="hoar">Hoar frost</option>
-											<option value="KQ">Line Squall</option>
-											<option value="q">Squalls</option>
-											<option value="y">Dry air</option>
-											<option value="!">Lightning</option>
-											<option value="z">Dust haze</option>
-											<option value="t">Thunder</option>
-											<option value="sh">Passing showers</option>
-										</datalist>
-									</td>
-									<td>
-										<input
-											list="visibility-options"
-											name="visibility"
-											id="visibility"
-											placeholder="7" />
+									<tr>
+										<th
+											colspan="3"
+											class="min-w-7">
+											Latitude
+										</th>
+										<th
+											colspan="3"
+											class="min-w-7">
+											Longitude
+										</th>
+										<th
+											class="min-w-4"
+											rowspan="2">
+											RUN <br />
+											(X-BAND)
+										</th>
+										<th
+											colspan="2"
+											class="min-w-7">
+											TOTAL <br />
+											(X-BAND)
+										</th>
+										<th
+											class="min-w-4"
+											rowspan="2">
+											RUN <br />
+											(S-BAND)
+										</th>
+										<th
+											colspan="2"
+											class="min-w-7">
+											TOTAL <br />
+											(S-BAND)
+										</th>
+										<th colspan="2">Transmitter System (dB)</th>
+										<th colspan="2">Receiver System (dB)</th>
+									</tr>
+									<tr>
+										<th>Degrees</th>
+										<th>Minutes</th>
+										<th>Sign</th>
+										<th>Degrees</th>
+										<th>Minutes</th>
+										<th>Sign</th>
+										<th>TX</th>
+										<th>TTL</th>
+										<th>TX</th>
+										<th>TTL</th>
+										<th>X (db)</th>
+										<th>S (db)</th>
+										<th>X (db)</th>
+										<th>S (db)</th>
+									</tr>
+								</thead>
+								<tbody id="log-entries">
+									<tr>
+										<td>
+											<input
+												type="datetime-local"
+												name="datetime" />
+										</td>
+										<td>
+											<input
+												type="text"
+												name="latitude-degrees"
+												placeholder="53°" />
+										</td>
+										<td>
+											<input
+												type="text"
+												name="latitude-minutes"
+												placeholder="20.5'" />
+										</td>
+										<td>
+											<select
+												name="latitude"
+												id="latitude-sign">
+												<option
+													value=""
+													disabled
+													selected
+													hidden></option>
+												<option value="N">N</option>
+												<option value="S">S</option>
+											</select>
+										</td>
+										<td>
+											<input
+												type="text"
+												name="longitude-degrees"
+												placeholder="004°" />
+										</td>
+										<td>
+											<input
+												type="text"
+												name="longitude-minutes"
+												placeholder="02.5'" />
+										</td>
+										<td>
+											<select
+												name="longitude"
+												id="longitude-sign">
+												<option
+													value=""
+													disabled
+													selected
+													hidden></option>
+												<option value="E">E</option>
+												<option value="W">W</option>
+											</select>
+										</td>
+										<td>
+											<input
+												type="number"
+												name="runXBand"
+												placeholder="hours" />
+										</td>
+										<td>
+											<input
+												type="number"
+												name="totalXBandTx"
+												placeholder="hours" />
+										</td>
+										<td>
+											<input
+												type="number"
+												name="totalXBandTTL"
+												placeholder="hours" />
+										</td>
+										<td>
+											<input
+												type="number"
+												name="runSBand"
+												placeholder="hours" />
+										</td>
+										<td>
+											<input
+												type="number"
+												name="totalXBandTx"
+												placeholder="hours" />
+										</td>
+										<td>
+											<input
+												type="number"
+												name="totalXBandTTL"
+												placeholder="hours" />
+										</td>
+										<td>
+											<input
+												list="weather-options"
+												name="weather"
+												placeholder="b"
+												maxlength="3" />
+											<datalist id="weather-options">
+												<option value="b">
+													Blue sky (less than 1/3 covered)
+												</option>
+												<option value="be">
+													Sky partly cloudy (1/3 to 2/3)
+												</option>
+												<option value="c">
+													Generally cloudy (more than 2/3)
+												</option>
+												<option value="0">
+													Overcast sky (+ stratus or nimbus)
+												</option>
+												<option value="m">Mist</option>
+												<option value="d">Drizzle, or fine rain</option>
+												<option value="r">Rain</option>
+												<option value="e">Wet air without rain falling</option>
+												<option value="rs">
+													Sleet (rain and snow together)
+												</option>
+												<option value="s">Snow</option>
+												<option value="f">Fog</option>
+												<option value="fe">Wet fog</option>
+												<option value="u">Ugly, threatening sky</option>
+												<option value="g">Gloomy</option>
+												<option value="V">
+													Exceptional visibility (abnormally clear)
+												</option>
+												<option value="h">Hail</option>
+												<option value="w">Dew</option>
+												<option value="i">Intermittent</option>
+												<option value="hoar">Hoar frost</option>
+												<option value="KQ">Line Squall</option>
+												<option value="q">Squalls</option>
+												<option value="y">Dry air</option>
+												<option value="!">Lightning</option>
+												<option value="z">Dust haze</option>
+												<option value="t">Thunder</option>
+												<option value="sh">Passing showers</option>
+											</datalist>
+										</td>
+										<td>
+											<input
+												list="visibility-options"
+												name="visibility"
+												id="visibility"
+												placeholder="7" />
 
-										<datalist id="visibility-options">
-											<option
-												value="0"
-												label="Dense fog (not visible at 50 yards)"></option>
-											<option
-												value="1"
-												label="Thick fog (not visible at 1 cable)"></option>
-											<option
-												value="2"
-												label="Fog (not visible at 2 cables)"></option>
-											<option
-												value="3"
-												label="Moderate fog (not visible at ½ mile)"></option>
-											<option
-												value="4"
-												label="Mist/haze (not visible at 1 mile)"></option>
-											<option
-												value="5"
-												label="Poor visibility (not visible at 2 miles)"></option>
-											<option
-												value="6"
-												label="Moderate visibility (not visible at 5 miles)"></option>
-											<option
-												value="7"
-												label="Good visibility (not visible at 10 miles)"></option>
-											<option
-												value="8"
-												label="Very good visibility (not visible at 30 miles)"></option>
-											<option
-												value="9"
-												label="Excellent visibility (visible > 30 miles)"></option>
-										</datalist>
-									</td>
-									<td>
-										<!-- <input
-									type="text"
-									name="wind"
-									placeholder="NE" /> -->
-										<input
-											list="wind-directions"
-											name="wind"
-											id="wind"
-											placeholder="N" />
+											<datalist id="visibility-options">
+												<option
+													value="0"
+													label="Dense fog (not visible at 50 yards)"></option>
+												<option
+													value="1"
+													label="Thick fog (not visible at 1 cable)"></option>
+												<option
+													value="2"
+													label="Fog (not visible at 2 cables)"></option>
+												<option
+													value="3"
+													label="Moderate fog (not visible at ½ mile)"></option>
+												<option
+													value="4"
+													label="Mist/haze (not visible at 1 mile)"></option>
+												<option
+													value="5"
+													label="Poor visibility (not visible at 2 miles)"></option>
+												<option
+													value="6"
+													label="Moderate visibility (not visible at 5 miles)"></option>
+												<option
+													value="7"
+													label="Good visibility (not visible at 10 miles)"></option>
+												<option
+													value="8"
+													label="Very good visibility (not visible at 30 miles)"></option>
+												<option
+													value="9"
+													label="Excellent visibility (visible > 30 miles)"></option>
+											</datalist>
+										</td>
+										<td>
+											<!-- <input
+										type="text"
+										name="wind"
+										placeholder="NE" /> -->
+											<input
+												list="wind-directions"
+												name="wind"
+												id="wind"
+												placeholder="N" />
 
-										<datalist id="wind-directions">
-											<option
-												value="N"
-												label="North"></option>
-											<option
-												value="NNE"
-												label="North-Northeast"></option>
-											<option
-												value="NE"
-												label="Northeast"></option>
-											<option
-												value="ENE"
-												label="East-Northeast"></option>
-											<option
-												value="E"
-												label="East"></option>
-											<option
-												value="ESE"
-												label="East-Southeast"></option>
-											<option
-												value="SE"
-												label="Southeast"></option>
-											<option
-												value="SSE"
-												label="South-Southeast"></option>
-											<option
-												value="S"
-												label="South"></option>
-											<option
-												value="SSW"
-												label="South-Southwest"></option>
-											<option
-												value="SW"
-												label="Southwest"></option>
-											<option
-												value="WSW"
-												label="West-Southwest"></option>
-											<option
-												value="W"
-												label="West"></option>
-											<option
-												value="WNW"
-												label="West-Northwest"></option>
-											<option
-												value="NW"
-												label="Northwest"></option>
-											<option
-												value="NNW"
-												label="North-Northwest"></option>
-										</datalist>
-									</td>
-									<td>
-										<input
-											list="sea-condition-options"
-											name="seaCondition"
-											placeholder="0-12"
-											maxlength="2" />
-										<datalist id="sea-condition-options">
-											<option value="0">Calm (glassy)</option>
-											<option value="1">Calm (rippled)</option>
-											<option value="2">Smooth (wavelets)</option>
-											<option value="3">Slight</option>
-											<option value="4">Moderate</option>
-											<option value="5">Rough</option>
-											<option value="6">Very rough</option>
-											<option value="7">High</option>
-											<option value="8">Very high</option>
-											<option value="9">Strong storm</option>
-											<option value="10">Violent storm</option>
-											<option value="11">Hurricane force</option>
-											<option value="12">Hurricane (extreme)</option>
-										</datalist>
-									</td>
+											<datalist id="wind-directions">
+												<option
+													value="N"
+													label="North"></option>
+												<option
+													value="NNE"
+													label="North-Northeast"></option>
+												<option
+													value="NE"
+													label="Northeast"></option>
+												<option
+													value="ENE"
+													label="East-Northeast"></option>
+												<option
+													value="E"
+													label="East"></option>
+												<option
+													value="ESE"
+													label="East-Southeast"></option>
+												<option
+													value="SE"
+													label="Southeast"></option>
+												<option
+													value="SSE"
+													label="South-Southeast"></option>
+												<option
+													value="S"
+													label="South"></option>
+												<option
+													value="SSW"
+													label="South-Southwest"></option>
+												<option
+													value="SW"
+													label="Southwest"></option>
+												<option
+													value="WSW"
+													label="West-Southwest"></option>
+												<option
+													value="W"
+													label="West"></option>
+												<option
+													value="WNW"
+													label="West-Northwest"></option>
+												<option
+													value="NW"
+													label="Northwest"></option>
+												<option
+													value="NNW"
+													label="North-Northwest"></option>
+											</datalist>
+										</td>
+										<td>
+											<input
+												list="sea-condition-options"
+												name="seaCondition"
+												placeholder="0-12"
+												maxlength="2" />
+											<datalist id="sea-condition-options">
+												<option value="0">Calm (glassy)</option>
+												<option value="1">Calm (rippled)</option>
+												<option value="2">Smooth (wavelets)</option>
+												<option value="3">Slight</option>
+												<option value="4">Moderate</option>
+												<option value="5">Rough</option>
+												<option value="6">Very rough</option>
+												<option value="7">High</option>
+												<option value="8">Very high</option>
+												<option value="9">Strong storm</option>
+												<option value="10">Violent storm</option>
+												<option value="11">Hurricane force</option>
+												<option value="12">Hurricane (extreme)</option>
+											</datalist>
+										</td>
 
-									<td>
-										<input
-											class="min-w-2"
-											type="number"
-											name="transmitterX"
-											placeholder="dB" />
-									</td>
-									<td>
-										<input
-											class="min-w-2"
-											type="number"
-											name="transmitterS"
-											placeholder="dB" />
-									</td>
-									<td>
-										<input
-											class="min-w-2"
-											type="number"
-											name="receiverX"
-											placeholder="dB" />
-									</td>
-									<td>
-										<input
-											class="min-w-2"
-											type="number"
-											name="receiverS"
-											placeholder="dB" />
-									</td>
-									<td>
-										<input
-											type="text"
-											name="remarks" />
-									</td>
-									<td>
-										<input
-											type="text"
-											name="signature" />
-									</td>
-								</tr>
-							</tbody>
-						</table>
+										<td>
+											<input
+												class="min-w-2"
+												type="number"
+												name="transmitterX"
+												placeholder="dB" />
+										</td>
+										<td>
+											<input
+												class="min-w-2"
+												type="number"
+												name="transmitterS"
+												placeholder="dB" />
+										</td>
+										<td>
+											<input
+												class="min-w-2"
+												type="number"
+												name="receiverX"
+												placeholder="dB" />
+										</td>
+										<td>
+											<input
+												class="min-w-2"
+												type="number"
+												name="receiverS"
+												placeholder="dB" />
+										</td>
+										<td>
+											<input
+												type="text"
+												name="remarks" />
+										</td>
+										<td>
+											<input
+												type="text"
+												name="signature" />
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						
 
 						<div class="logbook-footer">
 							<button type="submit">Add Record</button>

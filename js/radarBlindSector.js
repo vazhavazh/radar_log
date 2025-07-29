@@ -78,20 +78,20 @@ export const radarBlindSectorDiagram1 = () => {
 	);
 
 	// ************************************************
-	// НОВЫЙ КОД ДЛЯ ИНПУТОВ И КНОПКИ
+	// ЭЛЕМЕНТЫ УПРАВЛЕНИЯ ДЛЯ ПЕРВОГО РАДАРА
 	// ************************************************
 
-	const startAngleInput = document.getElementById("startAngleInput");
-	const sectorWidthInput = document.getElementById("sectorWidthInput");
-	const addSectorButton = document.getElementById("addSectorButton");
-	const removeLastSectorButton = document.getElementById(
-		"removeLastSectorButton"
+	const startAngleInput1 = document.getElementById("startAngleInput1");
+	const sectorWidthInput1 = document.getElementById("sectorWidthInput1");
+	const addSectorButton1 = document.getElementById("addSectorButton1");
+	const removeLastSectorButton1 = document.getElementById(
+		"removeLastSectorButton1"
 	);
 
-	if (removeLastSectorButton) {
-		removeLastSectorButton.addEventListener("click", () => {
+	if (removeLastSectorButton1) {
+		removeLastSectorButton1.addEventListener("click", () => {
 			if (userSectors.length === 0) {
-				alert("Нет секторов для удаления.");
+				alert("Нет секторов для удаления в Радаре 1.");
 				return;
 			}
 			const lastSector = userSectors.pop(); // Удаляем из массива
@@ -100,10 +100,10 @@ export const radarBlindSectorDiagram1 = () => {
 		});
 	}
 
-	if (addSectorButton && startAngleInput && sectorWidthInput) {
-		addSectorButton.addEventListener("click", () => {
-			const startAngle = parseFloat(startAngleInput.value);
-			const sectorWidth = parseFloat(sectorWidthInput.value);
+	if (addSectorButton1 && startAngleInput1 && sectorWidthInput1) {
+		addSectorButton1.addEventListener("click", () => {
+			const startAngle = parseFloat(startAngleInput1.value);
+			const sectorWidth = parseFloat(sectorWidthInput1.value);
 
 			if (isNaN(startAngle) || isNaN(sectorWidth)) {
 				alert("Пожалуйста, введите корректные числа для угла и ширины.");
@@ -122,8 +122,8 @@ export const radarBlindSectorDiagram1 = () => {
 				radius: maxRadius,
 				angle: sectorWidth, // Ширина сектора
 				rotation: startAngle, // Начальный угол сектора
-				fill: "rgba(0, 0, 255, 0.5)", // Используем синий цвет для новых секторов
-				stroke: "blue",
+				fill: "rgba(255, 0, 0, 0.5)", // Красный цвет для первого радара
+				stroke: "red",
 				strokeWidth: 2,
 			});
 
@@ -132,11 +132,12 @@ export const radarBlindSectorDiagram1 = () => {
 			layer.draw(); // Перерисовываем слой, чтобы показать новый сектор
 		});
 	} else {
-		console.error("Не найдены HTML-элементы для инпутов или кнопки.");
+		console.error(
+			"Не найдены HTML-элементы для инпутов или кнопки первого радара."
+		);
 	}
 
-	// Добавляем два сектора по умолчанию (как в вашем предыдущем коде)
-	// Эти секторы можно убрать, если вы хотите, чтобы пользователь добавлял их сам
+	// Добавляем два сектора по умолчанию для первого радара
 	layer.add(
 		new Konva.Wedge({
 			x: centerX,
@@ -165,6 +166,7 @@ export const radarBlindSectorDiagram1 = () => {
 
 	layer.draw();
 };
+
 export const radarBlindSectorDiagram2 = () => {
 	const userSectors = [];
 	const stage = new Konva.Stage({
@@ -245,20 +247,20 @@ export const radarBlindSectorDiagram2 = () => {
 	);
 
 	// ************************************************
-	// НОВЫЙ КОД ДЛЯ ИНПУТОВ И КНОПКИ
+	// ЭЛЕМЕНТЫ УПРАВЛЕНИЯ ДЛЯ ВТОРОГО РАДАРА
 	// ************************************************
 
-	const startAngleInput = document.getElementById("startAngleInput");
-	const sectorWidthInput = document.getElementById("sectorWidthInput");
-	const addSectorButton = document.getElementById("addSectorButton");
-	const removeLastSectorButton = document.getElementById(
-		"removeLastSectorButton"
+	const startAngleInput2 = document.getElementById("startAngleInput2");
+	const sectorWidthInput2 = document.getElementById("sectorWidthInput2");
+	const addSectorButton2 = document.getElementById("addSectorButton2");
+	const removeLastSectorButton2 = document.getElementById(
+		"removeLastSectorButton2"
 	);
 
-	if (removeLastSectorButton) {
-		removeLastSectorButton.addEventListener("click", () => {
+	if (removeLastSectorButton2) {
+		removeLastSectorButton2.addEventListener("click", () => {
 			if (userSectors.length === 0) {
-				alert("Нет секторов для удаления.");
+				alert("Нет секторов для удаления в Радаре 2.");
 				return;
 			}
 			const lastSector = userSectors.pop(); // Удаляем из массива
@@ -267,10 +269,10 @@ export const radarBlindSectorDiagram2 = () => {
 		});
 	}
 
-	if (addSectorButton && startAngleInput && sectorWidthInput) {
-		addSectorButton.addEventListener("click", () => {
-			const startAngle = parseFloat(startAngleInput.value);
-			const sectorWidth = parseFloat(sectorWidthInput.value);
+	if (addSectorButton2 && startAngleInput2 && sectorWidthInput2) {
+		addSectorButton2.addEventListener("click", () => {
+			const startAngle = parseFloat(startAngleInput2.value);
+			const sectorWidth = parseFloat(sectorWidthInput2.value);
 
 			if (isNaN(startAngle) || isNaN(sectorWidth)) {
 				alert("Пожалуйста, введите корректные числа для угла и ширины.");
@@ -289,7 +291,7 @@ export const radarBlindSectorDiagram2 = () => {
 				radius: maxRadius,
 				angle: sectorWidth, // Ширина сектора
 				rotation: startAngle, // Начальный угол сектора
-				fill: "rgba(255, 0, 0, 0.5)", // Используем синий цвет для новых секторов
+				fill: "rgba(0, 0, 255, 0.5)", // Синий цвет для второго радара
 				stroke: "blue",
 				strokeWidth: 2,
 			});
@@ -299,36 +301,24 @@ export const radarBlindSectorDiagram2 = () => {
 			layer.draw(); // Перерисовываем слой, чтобы показать новый сектор
 		});
 	} else {
-		console.error("Не найдены HTML-элементы для инпутов или кнопки.");
+		console.error(
+			"Не найдены HTML-элементы для инпутов или кнопки второго радара."
+		);
 	}
 
-	// Добавляем два сектора по умолчанию (как в вашем предыдущем коде)
-	// Эти секторы можно убрать, если вы хотите, чтобы пользователь добавлял их сам
-	layer.add(
-		new Konva.Wedge({
-			x: centerX,
-			y: centerY,
-			radius: maxRadius,
-			angle: 15,
-			rotation: 87,
-			fill: "rgba(255, 0, 0, 0.5)",
-			stroke: "red",
-			strokeWidth: 2,
-		})
-	);
-
-	layer.add(
-		new Konva.Wedge({
-			x: centerX,
-			y: centerY,
-			radius: maxRadius,
-			angle: 18,
-			rotation: 166,
-			fill: "rgba(255, 0, 0, 0.5)",
-			stroke: "red",
-			strokeWidth: 2,
-		})
-	);
+	// Для второго радара секторы по умолчанию закомментированы
+	// layer.add(
+	// 	new Konva.Wedge({
+	// 		x: centerX,
+	// 		y: centerY,
+	// 		radius: maxRadius,
+	// 		angle: 15,
+	// 		rotation: 87,
+	// 		fill: "rgba(0, 0, 255, 0.5)",
+	// 		stroke: "blue",
+	// 		strokeWidth: 2,
+	// 	})
+	// );
 
 	layer.draw();
 };
