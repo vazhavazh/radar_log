@@ -7,6 +7,12 @@ body {
 	padding-right: 32px;
 	padding-top: 16px;
 }
+table input,
+table select {
+	min-width: 40px;
+	box-sizing: border-box;
+	width: 100%;
+}
 
 [data-tab-content] {
 	display: none;
@@ -61,7 +67,7 @@ table.logbook-table {
 .logbook-table th,
 .logbook-table td {
 	border: 1px solid black;
-	padding: 5px;
+	padding: 2px;
 	text-align: center;
 	vertical-align: middle;
 }

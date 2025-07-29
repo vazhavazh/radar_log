@@ -1,93 +1,36 @@
-
-// export const formSubmit = () => {
-// 	const form = document.getElementById("log-form");
-// 	const tbody = document.getElementById("log-entries");
-// 	const templateRow = tbody.lastElementChild;
-
-// 	// Функция для сохранения данных в localStorage
-// 	const saveToLocalStorage = (entries) => {
-// 		localStorage.setItem("operation_log", JSON.stringify(entries));
-// 	};
-
-// 	// Функция для загрузки данных из localStorage и отрисовки
-// 	const loadFromLocalStorage = () => {
-// 		const data = JSON.parse(localStorage.getItem("operation_log")) || [];
-
-// 		// Удаляем все строки кроме последней (формы)
-// 		tbody
-// 			.querySelectorAll("tr:not(:last-child)")
-// 			.forEach((row) => row.remove());
-
-// 		// Добавляем строки из localStorage
-// 		data.forEach((entry) => {
-// 			const row = document.createElement("tr");
-
-// 			templateRow.querySelectorAll("input, select").forEach((field) => {
-// 				const td = document.createElement("td");
-// 				// Для select в localStorage лучше хранить значение, а не текст,
-// 				// но если хочешь текст - можно здесь подставить:
-// 				if (field.tagName === "SELECT") {
-// 					td.textContent = entry[field.name] || "";
-// 				} else {
-// 					td.textContent = entry[field.name] || "";
-// 				}
-// 				row.appendChild(td);
-// 			});
-
-// 			tbody.insertBefore(row, templateRow);
-// 		});
-// 	};
-
-// 	form.addEventListener("submit", (e) => {
-// 		e.preventDefault();
-
-// 		// Создаем объект с данными из формы
-// 		const newEntry = {};
-// 		templateRow.querySelectorAll("input, select").forEach((field) => {
-// 			if (field.tagName === "SELECT") {
-// 				newEntry[field.name] = field.value; // сохраняем value, чтобы не было проблем при загрузке
-// 			} else {
-// 				newEntry[field.name] = field.value;
-// 			}
-// 		});
-
-// 		// Создаем новую строку и вставляем данные
-// 		const dataRow = document.createElement("tr");
-// 		templateRow.querySelectorAll("input, select").forEach((field) => {
-// 			const td = document.createElement("td");
-// 			if (field.tagName === "SELECT") {
-// 				// Показываем текст выбранной опции
-// 				td.textContent = field.options[field.selectedIndex]?.text || "";
-// 			} else {
-// 				td.textContent = field.value;
-// 			}
-// 			dataRow.appendChild(td);
-// 		});
-// 		tbody.insertBefore(dataRow, templateRow);
-
-// 		// Сохраняем в localStorage
-// 		const data = JSON.parse(localStorage.getItem("operation_log")) || [];
-// 		data.push(newEntry);
-// 		saveToLocalStorage(data);
-
-// 		// Очищаем форму
-// 		templateRow.querySelectorAll("input").forEach((input) => {
-// 			if (input.type !== "submit") input.value = "";
-// 		});
-// 		templateRow.querySelectorAll("select").forEach((select) => {
-// 			select.selectedIndex = 0;
-// 		});
-// 	});
-
-// 	// При загрузке страницы
-// 	loadFromLocalStorage();
-// };
-
+const TEMP_KEY = "operation_log_draft";
 
 export const formSubmit = () => {
 	const form = document.getElementById("log-form");
 	const tbody = document.getElementById("log-entries");
 	const templateRow = tbody.lastElementChild;
+
+
+templateRow.querySelectorAll("input, select").forEach((field) => {
+	field.addEventListener("input", saveDraft);
+	field.addEventListener("change", saveDraft);
+});
+
+// Сохранение черновика в localStorage
+function saveDraft() {
+	const draft = {};
+	templateRow.querySelectorAll("input, select").forEach((field) => {
+		draft[field.name] = field.value;
+	});
+	localStorage.setItem(TEMP_KEY, JSON.stringify(draft));
+}
+
+// Загрузка черновика при старте
+function loadDraft() {
+	const draft = JSON.parse(localStorage.getItem(TEMP_KEY)) || {};
+	templateRow.querySelectorAll("input, select").forEach((field) => {
+		if (draft[field.name]) {
+			field.value = draft[field.name];
+		}
+	});
+}
+
+
 
 	const saveToLocalStorage = (entries) => {
 		localStorage.setItem("operation_log", JSON.stringify(entries));
@@ -137,6 +80,7 @@ export const formSubmit = () => {
 						// Удаляем запись из localStorage и обновляем таблицу
 						data.splice(index, 1);
 						saveToLocalStorage(data);
+						localStorage.removeItem(TEMP_KEY); 
 						loadFromLocalStorage();
 					});
 
@@ -154,13 +98,31 @@ export const formSubmit = () => {
 		e.preventDefault();
 
 		const newEntry = {};
+		let isValid = true;
+
 		templateRow.querySelectorAll("input, select").forEach((field) => {
-			newEntry[field.name] = field.value;
+			const value = field.value.trim();
+			newEntry[field.name] = value;
+
+			if (!value) {
+				isValid = false;
+				field.style.border = "0.5px solid red";
+				field.title = "This entry is required";
+			} else {
+				field.style.border = "";
+				field.title = "";
+			}
 		});
+
+		if (!isValid) {
+			alert("Please fill all entries");
+			return;
+		}
 
 		const data = JSON.parse(localStorage.getItem("operation_log")) || [];
 		data.push(newEntry);
 		saveToLocalStorage(data);
+		localStorage.removeItem(TEMP_KEY); 
 
 		// Очистка формы
 		templateRow.querySelectorAll("input").forEach((input) => {
@@ -174,4 +136,5 @@ export const formSubmit = () => {
 	});
 
 	loadFromLocalStorage();
+	loadDraft();
 };
