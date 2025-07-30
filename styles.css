@@ -38,8 +38,8 @@ body {
 
 	padding: 4px;
 	margin: 0;
-	padding-left: 32px;
-	padding-right: 32px;
+	padding-left: 8px;
+	padding-right: 8px;
 	padding-top: 16px;
 	background-color: var(--bg-color);
 	color: var(--main-color);
@@ -75,7 +75,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 }
 table input,
 table select {
-	min-width: 40px;
+	min-width: 50px;
 	box-sizing: border-box;
 	width: 100%;
 }
@@ -125,11 +125,21 @@ table select {
 	text-transform: uppercase;
 	margin-bottom: 20px;
 }
+#log-form-particulars {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 
 table.logbook-table {
-	width: 100%;
 	border-collapse: collapse;
 	font-size: 13px;
+}
+
+#radar-particulars table,
+#log-form-particulars table {
+	width: 45vw;
 }
 
 .logbook-table th,
@@ -157,7 +167,7 @@ table.logbook-table {
 	font-style: italic;
 }
 .min-w-2 {
-	min-width: 2rem;
+	min-width: 2.5rem;
 }
 .min-w-4 {
 	min-width: 4rem;
@@ -293,4 +303,53 @@ h2 {
 .section-header {
 	background-color: var(--bg-light-white) !important;
 	font-weight: bold;
+}
+
+/* Стили для редактируемой таблицы */
+.display-value {
+	display: block;
+	min-height: 20px;
+	padding: 4px;
+	border: 1px solid transparent;
+	border-radius: 3px;
+	transition: all 0.1s ease;
+}
+
+.display-value:hover {
+	background-color: var(--bg-light-white);
+	border-color: #dee2e6;
+}
+
+.logbook-table td {
+	position: relative;
+	vertical-align: middle;
+}
+
+/* Стили для кнопок */
+.delete-btn:hover {
+	background: #cc3333 !important;
+}
+
+button[style*="background: #28a745"]:hover {
+	background: #218838 !important;
+}
+
+button[style*="background: #6c757d"]:hover {
+	background: #5a6268 !important;
+}
+
+/* Улучшенные поля ввода в режиме редактирования */
+.logbook-table input[style*="border: 1px solid #007bff"],
+.logbook-table select[style*="border: 1px solid #007bff"] {
+	background-color: var(--bg-light-white);
+	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Анимация для плавного перехода */
+.logbook-table tr {
+	transition: background-color 0.2s ease;
+}
+
+.logbook-table tr:hover {
+	background-color: rgba(0, 123, 255, 0.05);
 }
