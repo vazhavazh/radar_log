@@ -25,6 +25,11 @@
 				class="tab">
 				Analytics
 			</li>
+			<li
+				data-tab-target="#maintenance"
+				class="tab">
+				Maintenance
+			</li>
 		</ul>
 
 		<div class="tab-content">
@@ -75,7 +80,6 @@
 							</tr>
 						</table>
 						<div class="logbook-footer">
-							
 							<button
 								id="general-particulars-btn-save"
 								type="submit">
@@ -244,7 +248,9 @@
 						</div>
 					</form>
 					<h2>Blind Sector</h2>
-					<form style="margin-bottom: 3rem;" id="blind-sectors">
+					<form
+						style="margin-bottom: 3rem"
+						id="blind-sectors">
 						<div class="radars-container">
 							<div>
 								<h3>S-BAND</h3>
@@ -1006,28 +1012,32 @@
 											class="min-w-2"
 											type="number"
 											name="transmitterX"
-											placeholder="dB" />
+											placeholder="dB"
+											step="0.1" />
 									</td>
 									<td>
 										<input
 											class="min-w-2"
 											type="number"
 											name="transmitterS"
-											placeholder="dB" />
+											placeholder="dB"
+											step="0.1" />
 									</td>
 									<td>
 										<input
 											class="min-w-2"
 											type="number"
 											name="receiverX"
-											placeholder="dB" />
+											placeholder="dB"
+											step="0.1" />
 									</td>
 									<td>
 										<input
 											class="min-w-2"
 											type="number"
 											name="receiverS"
-											placeholder="dB" />
+											placeholder="dB"
+											step="0.1" />
 									</td>
 									<td>
 										<input
@@ -1052,56 +1062,166 @@
 
 			<div
 				id="analytics"
-				
 				data-tab-content>
-				<h3>Analytic</h3>
+				<h3>Analytics</h3>
 				<div>
-					<label for="x-axis">
-						<select
-							name="x-axis"
-							id="x-axis">
-							<option value="datetime">datetime</option>
-							<option value="runXBand">runXBand</option>
-							<option value="totalXBandTx">totalXBandTx</option>
-							<option value="totalXBandTTL">totalXBandTTL</option>
-							<option value="runSBand">runSBand</option>
-							<option value="totalSBandTx">totalSBandTx</option>
-							<option value="totalSBandTTL">totalSBandTTL</option>
-							<option value="transmitterX">transmitterX</option>
-							<option value="transmitterS">transmitterS</option>
-							<option value="receiverX">receiverX</option>
-							<option value="receiverS">receiverS</option>
-						</select>
-					</label>
-					<label for="y-axis">
-						<select
-							name="y-axis"
-							id="y-axis">
-							
-							<option value="runXBand">runXBand</option>
-							<option value="totalXBandTx">totalXBandTx</option>
-							<option value="totalXBandTTL">totalXBandTTL</option>
-							<option value="runSBand">runSBand</option>
-							<option value="totalSBandTx">totalSBandTx</option>
-							<option value="totalSBandTTL">totalSBandTTL</option>
-							<option value="transmitterX">transmitterX</option>
-							<option value="transmitterS">transmitterS</option>
-							<option value="receiverX">receiverX</option>
-							<option value="receiverS">receiverS</option>
-						</select>
-					</label>
+					<div class="logbook-footer">
+						<div class="label-axis-container">
+							<label
+								class="label-axis"
+								for="y-axis">
+								Select value for Y-Axis (vertical axis)
+								<select
+									name="y-axis"
+									id="y-axis">
+									<option value="totalXBandTx">totalXBandTx</option>
+									<option value="totalXBandTTL">totalXBandTTL</option>
 
-					<button>Apply</button>
+									<option value="totalSBandTx">totalSBandTx</option>
+									<option value="totalSBandTTL">totalSBandTTL</option>
+									<option value="transmitterX">transmitterX</option>
+									<option value="transmitterS">transmitterS</option>
+									<option value="receiverX">receiverX</option>
+									<option value="receiverS">receiverS</option>
+								</select>
+							</label>
+							<label
+								class="label-axis"
+								for="x-axis">
+								Select value for X-Axis (horizontal axis)
+								<select
+									name="x-axis"
+									id="x-axis">
+									<option value="datetime">datetime</option>
+
+									<option value="totalXBandTx">totalXBandTx</option>
+									<option value="totalXBandTTL">totalXBandTTL</option>
+
+									<option value="totalSBandTx">totalSBandTx</option>
+									<option value="totalSBandTTL">totalSBandTTL</option>
+									<option value="transmitterX">transmitterX</option>
+									<option value="transmitterS">transmitterS</option>
+									<option value="receiverX">receiverX</option>
+									<option value="receiverS">receiverS</option>
+								</select>
+							</label>
+						</div>
+						<button>Apply</button>
+					</div>
 				</div>
-				<div 
-				style="width: 95vw; height: 85vh"
-				>
-					<canvas
-						
-						id="myAnalytic"></canvas>
+				<div style="width: 95vw; height: 85vh">
+					<canvas id="myAnalytic"></canvas>
 				</div>
 
 				<script></script>
+			</div>
+
+			<div
+				data-tab-content
+				id="maintenance">
+				<div class="container-maintenance">
+					<h3>Log of Defects / Maintenance</h3>
+
+					<table>
+						<thead>
+							<tr>
+								<th class="date-col">Date</th>
+								<th class="radar-type-col">Type of Radar</th>
+								<th class="defects-col">Defects/Unsatisfactory Performance</th>
+								<th class="repairs-col">Repairs/or Modifications</th>
+								<th class="remarks-col">Remarks</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="entry-row">
+								<td
+									contenteditable="true"
+									class="handwritten">
+									02 AUG 23
+								</td>
+								<td
+									contenteditable="true"
+									class="handwritten">
+									X - BAND
+								</td>
+								<td
+									contenteditable="true"
+									class="handwritten small-text">
+									RADAR SCANNER HAS ROTATING<br />
+									NOISE
+								</td>
+								<td
+									contenteditable="true"
+									class="handwritten small-text">
+									SERVICE TECHNICIAN CLEAN & LUBRICATE<br />
+									JOINT OF PEDDLE SUPPORT.<br />
+									FOUND ISSUE THAT SCANNER HAS<br />
+									LOOSE GEAR. SCANNER ROTERFETRIC<br />
+									& JOINTS MOTOR GEAR REPLACED<br />
+									BY NEW SPARE FROM TECHNICIAN<br />
+									MOTOR TIME RESET TO ZERO
+								</td>
+								<td
+									contenteditable="true"
+									class="handwritten small-text">
+									REPORT I COMPLETE<br />
+									WORK REPLACED<br />
+									NO ALL WORKING<br />
+									ALL SATISFACTORY
+								</td>
+							</tr>
+							<tr class="entry-row">
+								<td
+									contenteditable="true"
+									class="handwritten">
+									26/01
+								</td>
+								<td
+									contenteditable="true"
+									class="handwritten">
+									S-BAND
+								</td>
+								<td
+									contenteditable="true"
+									class="handwritten small-text">
+									RADAR COOLING NOT WORKING
+								</td>
+								<td
+									contenteditable="true"
+									class="handwritten small-text">
+									TOTAL SCANNER CSG AT MAGNET<br />
+									ALAE RUNNER SUPPLIER/COOLING
+								</td>
+								<td
+									contenteditable="true"
+									class="handwritten small-text">
+									NIL
+								</td>
+							</tr>
+							<tr class="entry-row">
+								<td contenteditable="true"></td>
+								<td contenteditable="true"></td>
+								<td contenteditable="true"></td>
+								<td contenteditable="true"></td>
+								<td contenteditable="true"></td>
+							</tr>
+							<tr class="entry-row">
+								<td contenteditable="true"></td>
+								<td contenteditable="true"></td>
+								<td contenteditable="true"></td>
+								<td contenteditable="true"></td>
+								<td contenteditable="true"></td>
+							</tr>
+							<tr class="entry-row">
+								<td contenteditable="true"></td>
+								<td contenteditable="true"></td>
+								<td contenteditable="true"></td>
+								<td contenteditable="true"></td>
+								<td contenteditable="true"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 
