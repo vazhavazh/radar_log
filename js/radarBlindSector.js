@@ -1,4 +1,7 @@
 export const radarBlindSectorDiagram1 = () => {
+	const styles = getComputedStyle(document.documentElement);
+	const colorFromCss = styles.getPropertyValue("--green-acid").trim();
+
 	const userSectors = [];
 	const stage = new Konva.Stage({
 		container: "blind-sector-diagram1",
@@ -26,7 +29,7 @@ export const radarBlindSectorDiagram1 = () => {
 				x: centerX,
 				y: centerY,
 				radius: radius,
-				stroke: "lightgray",
+				stroke: colorFromCss,
 				strokeWidth: 1,
 			})
 		);
@@ -43,7 +46,7 @@ export const radarBlindSectorDiagram1 = () => {
 					centerX + maxRadius * Math.cos(angleRad),
 					centerY + maxRadius * Math.sin(angleRad),
 				],
-				stroke: "lightgray",
+				stroke: colorFromCss,
 				strokeWidth: 1,
 			})
 		);
@@ -55,7 +58,7 @@ export const radarBlindSectorDiagram1 = () => {
 			y: centerY + textRadius * Math.sin(angleRad),
 			text: `${i}°`,
 			fontSize: 12,
-			fill: "black",
+			fill: colorFromCss,
 			rotation: 90, // Поворачиваем текст обратно
 			listening: false, // Отключаем прослушивание событий, чтобы не мешал
 		});
@@ -73,7 +76,7 @@ export const radarBlindSectorDiagram1 = () => {
 			x: centerX,
 			y: centerY,
 			radius: 5,
-			fill: "black",
+			fill: colorFromCss,
 		})
 	);
 
@@ -168,6 +171,8 @@ export const radarBlindSectorDiagram1 = () => {
 };
 
 export const radarBlindSectorDiagram2 = () => {
+	const styles = getComputedStyle(document.documentElement);
+	const colorFromCss = styles.getPropertyValue("--green-acid").trim();
 	const userSectors = [];
 	const stage = new Konva.Stage({
 		container: "blind-sector-diagram2",
@@ -195,7 +200,7 @@ export const radarBlindSectorDiagram2 = () => {
 				x: centerX,
 				y: centerY,
 				radius: radius,
-				stroke: "lightgray",
+				stroke: colorFromCss,
 				strokeWidth: 1,
 			})
 		);
@@ -212,7 +217,7 @@ export const radarBlindSectorDiagram2 = () => {
 					centerX + maxRadius * Math.cos(angleRad),
 					centerY + maxRadius * Math.sin(angleRad),
 				],
-				stroke: "lightgray",
+				stroke: colorFromCss,
 				strokeWidth: 1,
 			})
 		);
@@ -224,7 +229,7 @@ export const radarBlindSectorDiagram2 = () => {
 			y: centerY + textRadius * Math.sin(angleRad),
 			text: `${i}°`,
 			fontSize: 12,
-			fill: "black",
+			fill: colorFromCss,
 			rotation: 90, // Поворачиваем текст обратно
 			listening: false, // Отключаем прослушивание событий, чтобы не мешал
 		});
@@ -242,7 +247,7 @@ export const radarBlindSectorDiagram2 = () => {
 			x: centerX,
 			y: centerY,
 			radius: 5,
-			fill: "black",
+			fill: colorFromCss,
 		})
 	);
 
@@ -305,20 +310,6 @@ export const radarBlindSectorDiagram2 = () => {
 			"Не найдены HTML-элементы для инпутов или кнопки второго радара."
 		);
 	}
-
-	// Для второго радара секторы по умолчанию закомментированы
-	// layer.add(
-	// 	new Konva.Wedge({
-	// 		x: centerX,
-	// 		y: centerY,
-	// 		radius: maxRadius,
-	// 		angle: 15,
-	// 		rotation: 87,
-	// 		fill: "rgba(0, 0, 255, 0.5)",
-	// 		stroke: "blue",
-	// 		strokeWidth: 2,
-	// 	})
-	// );
 
 	layer.draw();
 };

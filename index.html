@@ -8,6 +8,7 @@
 			href="styles.css" />
 	</head>
 	<body>
+		<button id="themeToggle">🌙</button>
 		<ul class="tabs">
 			<li
 				data-tab-target="#particulars"
@@ -74,11 +75,7 @@
 							</tr>
 						</table>
 						<div class="logbook-footer">
-							<button
-								id="general-particulars-btn-edit"
-								type="submit">
-								Edit
-							</button>
+							
 							<button
 								id="general-particulars-btn-save"
 								type="submit">
@@ -247,7 +244,7 @@
 						</div>
 					</form>
 					<h2>Blind Sector</h2>
-					<form id="blind-sectors">
+					<form style="margin-bottom: 3rem;" id="blind-sectors">
 						<div class="radars-container">
 							<div>
 								<h3>S-BAND</h3>
@@ -276,17 +273,19 @@
 											max="360" />
 									</div>
 
-									<button
-										id="addSectorButton1"
-										style="margin-top: 10px"
-										type="button">
-										Add sector
-									</button>
-									<button
-										type="button"
-										id="removeLastSectorButton1">
-										Delete last sector
-									</button>
+									<div class="logbook-footer">
+										<button
+											id="addSectorButton1"
+											style="margin-top: 10px"
+											type="button">
+											Add sector
+										</button>
+										<button
+											type="button"
+											id="removeLastSectorButton1">
+											Delete last sector
+										</button>
+									</div>
 								</div>
 							</div>
 							<div>
@@ -315,17 +314,19 @@
 											min="1"
 											max="360" />
 									</div>
-									<button
-										id="addSectorButton2"
-										style="margin-top: 10px"
-										type="button">
-										Add sector
-									</button>
-									<button
-										type="button"
-										id="removeLastSectorButton2">
-										Delete last sector
-									</button>
+									<div class="logbook-footer">
+										<button
+											id="addSectorButton2"
+											style="margin-top: 10px"
+											type="button">
+											Add sector
+										</button>
+										<button
+											type="button"
+											id="removeLastSectorButton2">
+											Delete last sector
+										</button>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -1092,7 +1093,9 @@
 
 					<button>Apply</button>
 				</div>
-				<div>
+				<div 
+				style="width: 95vw; height: 85vh"
+				>
 					<canvas
 						
 						id="myAnalytic"></canvas>

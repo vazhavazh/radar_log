@@ -1,11 +1,77 @@
+:root {
+	--main-color: rgb(15, 50, 84);
+	--calendar-icon-filter: invert(0);
+	--bg-light-white: rgb(255, 255, 255);
+	/* --bg-color: rgb(233, 238, 243); */
+	--bg-color: rgb(201, 222, 242);
+	--hover-btn-color: rgb(39, 97, 154);
+	--bright-bg: rgb(201, 222, 242);
+	--border: rgb(184, 207, 229);
+	--note: rgb(255, 245, 137);
+	--sidebar-link-active: rgb(0, 112, 233);
+	--table-info: rgb(172, 212, 252);
+	--disabled-color: rgb(148, 148, 148);
+	--section-color: rgb(242, 241, 244);
+	--sectionEven-color: rgba(119, 196, 255, 0.16);
+	--close-btn-red: rgb(255, 48, 48);
+	--green-acid: rgb(0, 255, 76);
+}
+
+[data-theme="dark"] {
+	--main-color: rgba(255, 255, 255, 0.932);
+	--calendar-icon-filter: invert(1);
+	--bg-light-white: rgb(16, 40, 64);
+	--bg-color: rgb(1, 57, 113);
+	--bright-bg: rgba(201, 222, 242, 0.23);
+	--border: rgba(184, 207, 229, 0.386);
+	--hover-btn-color: rgba(255, 255, 255, 0.572);
+	--note: rgb(251 166 37 / 77%);
+	--sidebar-link-active: rgba(251, 208, 37, 0.868);
+	--table-info: rgba(39, 96, 154, 0.236);
+	--section-color: rgba(33, 33, 33, 0.5);
+	--close-btn-red: rgb(255 0 0);
+}
+
 body {
+	position: relative;
 	font-family: "Times New Roman", serif;
-	background: #fff;
+
 	padding: 4px;
 	margin: 0;
 	padding-left: 32px;
 	padding-right: 32px;
 	padding-top: 16px;
+	background-color: var(--bg-color);
+	color: var(--main-color);
+	transition: background-color 0.3s, color 0.3s;
+	input,
+	select {
+		color: var(--main-color);
+		border: 1px solid var(--main-color);
+		border-radius: 0.2rem;
+		padding: 0.4rem;
+		background-color: var(--bg-color);
+		cursor: pointer;
+	}
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+	filter: var(--calendar-icon-filter);
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+	filter: var(--calendar-icon-filter);
+}
+
+#themeToggle {
+	position: fixed;
+	right: 1rem;
+	top: 0.8rem;
+	font-size: 1.5rem;
+	padding: 0.5rem;
+	border: none;
+	background: transparent;
+	cursor: pointer;
 }
 table input,
 table select {
@@ -28,7 +94,7 @@ table select {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	border-bottom: 4px solid #333;
+	border-bottom: 4px solid var(--main-color);
 }
 .tab {
 	cursor: pointer;
@@ -38,17 +104,19 @@ table select {
 }
 
 .tab.active {
-	background-color: #ccc;
+	background-color: var(--note);
+	color: var(--main-color);
 }
 .tab:hover {
-	background-color: #aaa;
+	background-color: var(--sidebar-link-active);
+	color: var(--main-color);
 }
 
 .logbook-container {
 	max-width: 100%;
 	margin: auto;
 	padding: 12px;
-	border: 2px solid black;
+	border: 2px solid var(--main-color);
 }
 
 .logbook-title {
@@ -66,7 +134,7 @@ table.logbook-table {
 
 .logbook-table th,
 .logbook-table td {
-	border: 1px solid black;
+	border: 1px solid var(--main-color);
 	padding: 2px;
 	text-align: center;
 	vertical-align: middle;
@@ -104,8 +172,9 @@ table.logbook-table {
 }
 
 .logbook-footer button {
-	background: #333;
-	color: white;
+	border-radius: 0.5rem;
+	background: var(--main-color);
+	color: var(--bg-light-white);
 	border: none;
 	padding: 10px 20px;
 	font-weight: bold;
@@ -114,7 +183,7 @@ table.logbook-table {
 }
 
 .logbook-footer button:hover {
-	background: #555;
+	background: var(--sidebar-link-active);
 }
 
 .radars-container {
@@ -128,6 +197,12 @@ table.logbook-table {
 	}
 }
 
+#blind-sector-diagram1,
+#blind-sector-diagram2 {
+	border-radius: 0.5rem;
+	background-color: rgb(15, 50, 84);
+}
+
 h2 {
 	text-align: center;
 }
@@ -137,7 +212,6 @@ h2 {
 	align-items: center;
 }
 .flex-col {
-	
 	flex-direction: column;
 	gap: 8px;
 }
@@ -145,7 +219,7 @@ h2 {
 .installation-table-container {
 	max-width: 1000px;
 	margin: 0 auto;
-	background-color: white;
+	background-color: var(--bg-light-white);
 	padding: 20px;
 	border-radius: 8px;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -167,20 +241,19 @@ h2 {
 
 .installation-table th,
 .installation-table td {
-	border: 2px solid #333;
+	border: 2px solid var(--table-info);
 	padding: 8px;
 	text-align: center;
 	vertical-align: middle;
 }
 
 .installation-table th {
-	background-color: #e0e0e0;
 	font-weight: bold;
 }
 
 .row-header {
 	text-align: left !important;
-	background-color: #f8f8f8;
+
 	font-weight: normal;
 	padding-left: 10px;
 }
@@ -218,6 +291,6 @@ h2 {
 }
 
 .section-header {
-	background-color: #d0d0d0 !important;
+	background-color: var(--bg-light-white) !important;
 	font-weight: bold;
 }
