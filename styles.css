@@ -80,6 +80,9 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 .active[data-tab-content] {
 	display: block;
 }
+.logbook-table tr {
+position: relative;
+}
 
 .tabs {
 	display: flex;
@@ -110,7 +113,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 .logbook-container {
 	max-width: 100%;
 	margin: auto;
-	/* padding: 12px; */
+	padding: 12px;
 	border: 2px solid var(--main-color);
 }
 
@@ -128,7 +131,7 @@ form table {
 	border-collapse: separate;
 	border-spacing: 0;
 	border-radius: 6px;
-	overflow: hidden; /* Чтобы контент не вылезал за скругления */
+	
 
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -138,10 +141,9 @@ table,
 .installation-table {
 	/* border-collapse: collapse; */
 	font-size: 13px;
-	width: 100%;
 }
 
-.logbook-table {
+#log .logbook-table {
 	scale: 0.95;
 }
 
@@ -219,9 +221,10 @@ table select,
 }
 
 #radar-particulars table,
-#log-form-particulars table {
+#log-form-particulars table,
+.installation-table {
 	min-width: 45vw;
-	
+	max-width: 45vw;
 }
 
 /* Стили для кнопок */
@@ -281,6 +284,9 @@ h3 {
 
 /* Стили для таблицы установок - теперь унифицированы */
 .installation-table-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	max-width: 1000px;
 	margin: 0 auto;
 	/* background-color: var(--bg-light-white); */
