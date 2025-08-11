@@ -2,7 +2,6 @@
 	--main-color: rgb(15, 50, 84);
 	--calendar-icon-filter: invert(0);
 	--bg-light-white: rgb(255, 255, 255);
-	/* --bg-color: rgb(233, 238, 243); */
 	--bg-color: rgb(201, 222, 242);
 	--hover-btn-color: rgb(39, 97, 154);
 	--bright-bg: rgb(201, 222, 242);
@@ -15,7 +14,6 @@
 	--sectionEven-color: rgba(119, 196, 255, 0.16);
 	--close-btn-red: rgb(255, 48, 48);
 	--green-acid: rgb(0, 255, 76);
-	/* --green-acid: rgba(229, 255, 0, 0.698); */
 }
 
 [data-theme="dark"] {
@@ -36,7 +34,6 @@
 body {
 	position: relative;
 	font-family: "Times New Roman", serif;
-
 	padding: 4px;
 	margin: 0;
 	padding-left: 8px;
@@ -45,15 +42,16 @@ body {
 	background-color: var(--bg-color);
 	color: var(--main-color);
 	transition: background-color 0.3s, color 0.3s;
-	input,
-	select {
-		color: var(--main-color);
-		border: 1px solid var(--main-color);
-		border-radius: 0.2rem;
-		padding: 0.1rem;
-		background-color: var(--bg-color);
-		cursor: pointer;
-	}
+}
+
+body input,
+body select {
+	color: var(--main-color);
+	border: 2px solid var(--main-color);
+	border-radius: 0.2rem;
+	padding: 0.1rem;
+	background-color: var(--bg-color);
+	cursor: pointer;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -74,12 +72,6 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 	background: transparent;
 	cursor: pointer;
 }
-table input,
-table select {
-	min-width: 50px;
-	box-sizing: border-box;
-	width: 100%;
-}
 
 [data-tab-content] {
 	display: none;
@@ -95,8 +87,9 @@ table select {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	border-bottom: 4px solid var(--main-color);
+	border-bottom: 2px solid var(--main-color);
 }
+
 .tab {
 	cursor: pointer;
 	padding: 10px;
@@ -108,6 +101,7 @@ table select {
 	background-color: var(--note);
 	color: var(--main-color);
 }
+
 .tab:hover {
 	background-color: var(--sidebar-link-active);
 	color: var(--main-color);
@@ -116,7 +110,7 @@ table select {
 .logbook-container {
 	max-width: 100%;
 	margin: auto;
-	padding: 12px;
+	/* padding: 12px; */
 	border: 2px solid var(--main-color);
 }
 
@@ -126,6 +120,97 @@ table select {
 	text-transform: uppercase;
 	margin-bottom: 20px;
 }
+
+/* УНИФИЦИРОВАННЫЕ СТИЛИ ДЛЯ ВСЕХ ТАБЛИЦ */
+/* Базовые стили для всех таблиц */
+
+form table {
+	border-collapse: separate;
+	border-spacing: 0;
+	border-radius: 6px;
+	overflow: hidden; /* Чтобы контент не вылезал за скругления */
+
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+table,
+.logbook-table,
+.installation-table {
+	/* border-collapse: collapse; */
+	font-size: 13px;
+	width: 100%;
+}
+
+.logbook-table {
+	scale: 0.95;
+}
+
+/* Стили для ячеек всех таблиц */
+table th,
+table td,
+.logbook-table th,
+.logbook-table td,
+.installation-table th,
+.installation-table td {
+	border: 1px solid var(--main-color);
+	padding: 2px;
+	text-align: center;
+	vertical-align: middle;
+	height: 18px;
+}
+
+/* Стили для редактируемых ячеек */
+table td[contenteditable="true"] {
+	cursor: text;
+	background-color: var(--bg-color);
+}
+
+table td[contenteditable="true"]:hover {
+	background-color: var(--bright-bg);
+}
+
+table td[contenteditable="true"]:focus {
+	outline: 2px solid var(--sidebar-link-active);
+	background-color: var(--bg-light-white);
+}
+
+/* Стили для всех input в таблицах */
+table input,
+table select,
+.logbook-table input,
+.logbook-table select,
+.installation-table input,
+.installation-table select {
+	width: 100%;
+	border: none;
+	text-align: center;
+	font-family: inherit;
+	font-size: 12px;
+	background: transparent;
+	min-width: 50px;
+	box-sizing: border-box;
+}
+
+/* Специальные размеры */
+.min-w-2 {
+	min-width: 2.5rem;
+}
+
+.min-w-4 {
+	min-width: 4rem;
+}
+
+.min-w-7 {
+	min-width: 7rem;
+}
+
+/* Стили для подзаголовков */
+.sub {
+	font-size: 10px;
+	font-style: italic;
+}
+
+/* Стили для форм с таблицами */
 #log-form-particulars {
 	display: flex;
 	flex-direction: column;
@@ -133,50 +218,13 @@ table select {
 	align-items: center;
 }
 
-table.logbook-table {
-	border-collapse: collapse;
-	font-size: 13px;
-}
-
 #radar-particulars table,
 #log-form-particulars table {
-	width: 45vw;
+	min-width: 45vw;
+	
 }
 
-.logbook-table th,
-.logbook-table td {
-	border: 1px solid var(--main-color);
-	padding: 2px;
-	text-align: center;
-	vertical-align: middle;
-}
-.logbook-table td {
-	height: 18px;
-}
-
-.logbook-table input {
-	width: 100%;
-	border: none;
-	text-align: center;
-	font-family: inherit;
-	font-size: 12px;
-	background: transparent;
-}
-
-.logbook-table .sub {
-	font-size: 10px;
-	font-style: italic;
-}
-.min-w-2 {
-	min-width: 2.5rem;
-}
-.min-w-4 {
-	min-width: 4rem;
-}
-.min-w-7 {
-	min-width: 7rem;
-}
-
+/* Стили для кнопок */
 .logbook-footer {
 	margin-top: 20px;
 	text-align: center;
@@ -186,7 +234,7 @@ table.logbook-table {
 	border-radius: 0.5rem;
 	background: var(--main-color);
 	color: var(--bg-light-white);
-	border: none;
+	/* border: none; */
 	padding: 10px 20px;
 	font-weight: bold;
 	cursor: pointer;
@@ -197,15 +245,16 @@ table.logbook-table {
 	background: var(--sidebar-link-active);
 }
 
+/* Специальные стили для радарных диаграмм */
 .radars-container {
 	display: flex;
 	gap: 24px;
 	width: 100%;
 	justify-content: center;
+}
 
-	h3 {
-		text-align: center;
-	}
+.radars-container h3 {
+	text-align: center;
 }
 
 #blind-sector-diagram1,
@@ -218,54 +267,31 @@ h2,
 h3 {
 	text-align: center;
 }
+
 .flex-container-center {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
+
 .flex-col {
 	flex-direction: column;
 	gap: 8px;
 }
 
+/* Стили для таблицы установок - теперь унифицированы */
 .installation-table-container {
 	max-width: 1000px;
 	margin: 0 auto;
-	background-color: var(--bg-light-white);
+	/* background-color: var(--bg-light-white); */
 	padding: 20px;
 	border-radius: 8px;
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	/* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
 }
 
-/* h1 {
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
-        } */
-
-.installation-table {
-	width: 100%;
-	border-collapse: collapse;
-	font-size: 16px;
-}
-
-.installation-table th,
-.installation-table td {
-	border: 2px solid var(--table-info);
-	padding: 8px;
-	text-align: center;
-	vertical-align: middle;
-}
-
-.installation-table th {
-	font-weight: bold;
-}
-
+/* Специальные стили для строк в installation table */
 .row-header {
 	text-align: left !important;
-
 	font-weight: normal;
 	padding-left: 10px;
 }
@@ -303,31 +329,116 @@ h3 {
 }
 
 .section-header {
-	background-color: var(--bg-light-white) !important;
+	/* background-color: var(--bg-light-white) !important; */
 	font-weight: bold;
 }
 
-/* Стили для редактируемой таблицы */
-.display-value {
-	display: block;
-	min-height: 20px;
-	padding: 4px;
-	border: 1px solid transparent;
-	border-radius: 3px;
-	transition: all 0.1s ease;
+/* Стили для аналитических селекторов */
+.label-axis-container {
+	margin-bottom: 1rem;
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
 }
 
-.display-value:hover {
-	background-color: var(--bg-light-white);
-	border-color: #dee2e6;
+.label-axis {
+	display: flex;
+	flex-direction: column;
+	max-width: 20vw;
 }
 
-.logbook-table td {
-	position: relative;
-	vertical-align: middle;
+.label-axis select {
+	margin-top: 0.5rem;
 }
 
-/* Стили для кнопок */
+/* Стили для таблицы обслуживания - теперь унифицированы */
+.container-maintenance {
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-maintenance h3 {
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	border-bottom: 2px solid var(--main-color);
+	padding-bottom: 10px;
+}
+
+.container-maintenance table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 10px;
+}
+
+.container-maintenance th,
+.container-maintenance td {
+	border: 2px solid var(--main-color);
+	padding: 8px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.container-maintenance th {
+	background-color: var(--bg-color);
+	font-weight: bold;
+	text-align: center;
+}
+
+.date-col {
+	width: 10%;
+}
+
+.radar-type-col {
+	width: 15%;
+}
+
+.defects-col {
+	width: 35%;
+}
+
+.repairs-col {
+	width: 30%;
+}
+
+.remarks-col {
+	width: 10%;
+}
+
+.handwritten {
+	/* font-family: "Courier New", monospace; */
+	font-size: 12px;
+	line-height: 1.2;
+}
+
+.entry-row {
+	height: 80px;
+}
+
+.small-text {
+	font-size: 11px;
+}
+
+/* Специальные классы для draught */
+.draught-label {
+	text-align: left !important;
+	padding-left: 10px;
+}
+
+/* Анимации и эффекты для всех таблиц */
+table tr {
+	transition: background-color 0.2s ease;
+}
+
+table tr:hover {
+	background-color: rgba(0, 123, 255, 0.05);
+}
+
+/* Стили для кнопок удаления и прочих */
 .delete-btn:hover {
 	background: #cc3333 !important;
 }
@@ -338,106 +449,4 @@ button[style*="background: #28a745"]:hover {
 
 button[style*="background: #6c757d"]:hover {
 	background: #5a6268 !important;
-}
-
-/* Улучшенные поля ввода в режиме редактирования */
-.logbook-table input[style*="border: 1px solid #007bff"],
-.logbook-table select[style*="border: 1px solid #007bff"] {
-	background-color: var(--bg-light-white);
-	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-/* Анимация для плавного перехода */
-.logbook-table tr {
-	transition: background-color 0.2s ease;
-}
-
-.logbook-table tr:hover {
-	background-color: rgba(0, 123, 255, 0.05);
-}
-
-.label-axis-container {
-	margin-bottom: 1rem;
-	display: flex;
-	justify-content: center;
-	gap: 2rem;
-}
-.label-axis {
-	display: flex;
-	flex-direction: column;
-	max-width: 20vw;
-	select {
-		margin-top: 0.5rem;
-	}
-}
-
-.container-maintenance {
-	background-color: white;
-	padding: 20px;
-	border-radius: 8px;
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-	h3 {
-		text-align: center;
-		font-size: 24px;
-		font-weight: bold;
-		margin-bottom: 20px;
-		text-transform: uppercase;
-		letter-spacing: 2px;
-		border-bottom: 2px solid #333;
-		padding-bottom: 10px;
-	}
-
-	table {
-		width: 100%;
-		border-collapse: collapse;
-		margin-top: 10px;
-	}
-
-	th,
-	td {
-		border: 2px solid #333;
-		padding: 8px;
-		text-align: left;
-		vertical-align: top;
-	}
-
-	th {
-		background-color: #f0f0f0;
-		font-weight: bold;
-		text-align: center;
-	}
-
-	.date-col {
-		width: 10%;
-	}
-
-	.radar-type-col {
-		width: 15%;
-	}
-
-	.defects-col {
-		width: 35%;
-	}
-
-	.repairs-col {
-		width: 30%;
-	}
-
-	.remarks-col {
-		width: 10%;
-	}
-
-	.handwritten {
-		font-family: "Courier New", monospace;
-		font-size: 12px;
-		line-height: 1.2;
-	}
-
-	.entry-row {
-		height: 80px;
-	}
-
-	.small-text {
-		font-size: 11px;
-	}
 }
