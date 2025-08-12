@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Edit entry</title>
+		<link
+			rel="stylesheet"
+			href="styles.css" />
+	</head>
+	<body>
+		<h1>Edit entry</h1>
+		<form id="edit-form">
+			<div class="form-group">
+				<label for="datetime">DATE/TIME (UTC)</label>
+				<input
+					type="datetime-local"
+					id="datetime"
+					name="datetime"
+					required />
+			</div>
+
+
+			
+
+			<fieldset class="position-group">
+				<legend>Ship's Position</legend>
+				<div class="lat-lon-group">
+					<h3>Latitude</h3>
+					<label for="latitude-degrees">Degrees</label>
+					<input
+						type="text"
+						id="latitude-degrees"
+						name="latitude-degrees"
+						
+						required />
+					<label for="latitude-minutes">Minutes</label>
+					<input
+						type="text"
+						id="latitude-minutes"
+						name="latitude-minutes"
+						required />
+					<label for="latitude">Sign</label>
+					<select
+						id="latitude"
+						name="latitude">
+						<option value="N">N</option>
+						<option value="S">S</option>
+					</select>
+				</div>
+				<div class="lat-lon-group">
+					<h3>Longitude</h3>
+					<label for="longitude-degrees">Degrees</label>
+					<input
+						type="text"
+						id="longitude-degrees"
+						name="longitude-degrees"
+						required />
+					<label for="longitude-minutes">Minutes</label>
+					<input
+						type="text"
+						id="longitude-minutes"
+						name="longitude-minutes"
+						required />
+					<label for="longitude">Sign</label>
+					<select
+						id="longitude"
+						name="longitude">
+						<option value="E">E</option>
+						<option value="W">W</option>
+					</select>
+				</div>
+			</fieldset>
+
+			<fieldset class="radar-group">
+				<legend>Radars</legend>
+				<div class="radar-band">
+					<h4>S-Band</h4>
+					<label for="runSBand">Run:</label>
+					<input
+						type="number"
+						id="runSBand"
+						name="runSBand" />
+					<label for="totalSBandTx">Total Tx:</label>
+					<input
+						type="number"
+						id="totalSBandTx"
+						name="totalSBandTx" />
+					<label for="totalSBandTTL">Total TTL:</label>
+					<input
+						type="number"
+						id="totalSBandTTL"
+						name="totalSBandTTL" />
+				</div>
+				<div class="radar-band">
+					<h4>X-Band</h4>
+					<label for="runXBand">Run:</label>
+					<input
+						type="number"
+						id="runXBand"
+						name="runXBand" />
+					<label for="totalXBandTx">Total Tx:</label>
+					<input
+						type="number"
+						id="totalXBandTx"
+						name="totalXBandTx" />
+					<label for="totalXBandTTL">Total TTL:</label>
+					<input
+						type="number"
+						id="totalXBandTTL"
+						name="totalXBandTTL" />
+				</div>
+			</fieldset>
+
+			<div class="form-group">
+				<label for="weather">Weather:</label>
+				<input
+					list="weather-options"
+					id="weather"
+					maxlength="3"
+					name="weather" />
+					<datalist id="weather-options">
+											<option value="b">
+												Blue sky (less than 1/3 covered)
+											</option>
+											<option value="be">Sky partly cloudy (1/3 to 2/3)</option>
+											<option value="c">
+												Generally cloudy (more than 2/3)
+											</option>
+											<option value="0">
+												Overcast sky (+ stratus or nimbus)
+											</option>
+											<option value="m">Mist</option>
+											<option value="d">Drizzle, or fine rain</option>
+											<option value="r">Rain</option>
+											<option value="e">Wet air without rain falling</option>
+											<option value="rs">Sleet (rain and snow together)</option>
+											<option value="s">Snow</option>
+											<option value="f">Fog</option>
+											<option value="fe">Wet fog</option>
+											<option value="u">Ugly, threatening sky</option>
+											<option value="g">Gloomy</option>
+											<option value="V">
+												Exceptional visibility (abnormally clear)
+											</option>
+											<option value="h">Hail</option>
+											<option value="w">Dew</option>
+											<option value="i">Intermittent</option>
+											<option value="hoar">Hoar frost</option>
+											<option value="KQ">Line Squall</option>
+											<option value="q">Squalls</option>
+											<option value="y">Dry air</option>
+											<option value="!">Lightning</option>
+											<option value="z">Dust haze</option>
+											<option value="t">Thunder</option>
+											<option value="sh">Passing showers</option>
+										</datalist>
+			</div>
+			<div class="form-group">
+				<label for="seaCondition">Состояние моря:</label>
+				<input
+					type="text"
+					id="seaCondition"
+					name="seaCondition" />
+			</div>
+			<div class="form-group">
+				<label for="wind">Ветер:</label>
+				<input
+					type="text"
+					id="wind"
+					name="wind" />
+			</div>
+			<div class="form-group">
+				<label for="visibility">Видимость:</label>
+				<input
+					type="text"
+					id="visibility"
+					name="visibility" />
+			</div>
+			<div class="form-group">
+				<label for="remarks">Заметки:</label>
+				<textarea
+					id="remarks"
+					name="remarks"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="signature">Подпись:</label>
+				<input
+					type="text"
+					id="signature"
+					name="signature"
+					required />
+			</div>
+
+			<button type="submit">Сохранить изменения</button>
+			<button
+				type="button"
+				id="cancel-btn">
+				Отмена
+			</button>
+		</form>
+
+		<script src="js/edit.js"></script>
+	</body>
+</html>

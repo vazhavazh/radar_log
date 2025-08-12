@@ -107,7 +107,7 @@ position: relative;
 
 .tab:hover {
 	background-color: var(--sidebar-link-active);
-	color: var(--main-color);
+	color: var(--bg-light-white);
 }
 
 .logbook-container {
@@ -223,8 +223,8 @@ table select,
 #radar-particulars table,
 #log-form-particulars table,
 .installation-table {
-	min-width: 45vw;
-	max-width: 45vw;
+	min-width: 60vw;
+	max-width: 60vw;
 }
 
 /* Стили для кнопок */
@@ -245,6 +245,7 @@ table select,
 }
 
 .logbook-footer button:hover {
+	
 	background: var(--sidebar-link-active);
 }
 
@@ -455,4 +456,8 @@ button[style*="background: #28a745"]:hover {
 
 button[style*="background: #6c757d"]:hover {
 	background: #5a6268 !important;
+}
+
+.unfilled {
+	background-color: var(--main-color);
 }
