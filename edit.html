@@ -22,9 +22,6 @@
 					required />
 			</div>
 
-
-			
-
 			<fieldset class="position-group">
 				<legend>Ship's Position</legend>
 				<div class="lat-lon-group">
@@ -34,7 +31,6 @@
 						type="text"
 						id="latitude-degrees"
 						name="latitude-degrees"
-						
 						required />
 					<label for="latitude-minutes">Minutes</label>
 					<input
@@ -114,91 +110,215 @@
 				</div>
 			</fieldset>
 
-			<div class="form-group">
-				<label for="weather">Weather:</label>
-				<input
-					list="weather-options"
-					id="weather"
-					maxlength="3"
-					name="weather" />
+			<fieldset class="weather-group">
+				<legend>Weather Options</legend>
+				<div class="form-group">
+					<label for="weather">State of weather:</label>
+					<input
+						list="weather-options"
+						id="weather"
+						maxlength="3"
+						name="weather" />
 					<datalist id="weather-options">
-											<option value="b">
-												Blue sky (less than 1/3 covered)
-											</option>
-											<option value="be">Sky partly cloudy (1/3 to 2/3)</option>
-											<option value="c">
-												Generally cloudy (more than 2/3)
-											</option>
-											<option value="0">
-												Overcast sky (+ stratus or nimbus)
-											</option>
-											<option value="m">Mist</option>
-											<option value="d">Drizzle, or fine rain</option>
-											<option value="r">Rain</option>
-											<option value="e">Wet air without rain falling</option>
-											<option value="rs">Sleet (rain and snow together)</option>
-											<option value="s">Snow</option>
-											<option value="f">Fog</option>
-											<option value="fe">Wet fog</option>
-											<option value="u">Ugly, threatening sky</option>
-											<option value="g">Gloomy</option>
-											<option value="V">
-												Exceptional visibility (abnormally clear)
-											</option>
-											<option value="h">Hail</option>
-											<option value="w">Dew</option>
-											<option value="i">Intermittent</option>
-											<option value="hoar">Hoar frost</option>
-											<option value="KQ">Line Squall</option>
-											<option value="q">Squalls</option>
-											<option value="y">Dry air</option>
-											<option value="!">Lightning</option>
-											<option value="z">Dust haze</option>
-											<option value="t">Thunder</option>
-											<option value="sh">Passing showers</option>
-										</datalist>
-			</div>
-			<div class="form-group">
-				<label for="seaCondition">Состояние моря:</label>
-				<input
-					type="text"
-					id="seaCondition"
-					name="seaCondition" />
-			</div>
-			<div class="form-group">
-				<label for="wind">Ветер:</label>
-				<input
-					type="text"
-					id="wind"
-					name="wind" />
-			</div>
-			<div class="form-group">
-				<label for="visibility">Видимость:</label>
-				<input
-					type="text"
-					id="visibility"
-					name="visibility" />
-			</div>
-			<div class="form-group">
-				<label for="remarks">Заметки:</label>
-				<textarea
-					id="remarks"
-					name="remarks"></textarea>
-			</div>
-			<div class="form-group">
-				<label for="signature">Подпись:</label>
-				<input
-					type="text"
-					id="signature"
-					name="signature"
-					required />
-			</div>
+						<option value="b">Blue sky (less than 1/3 covered)</option>
+						<option value="be">Sky partly cloudy (1/3 to 2/3)</option>
+						<option value="c">Generally cloudy (more than 2/3)</option>
+						<option value="0">Overcast sky (+ stratus or nimbus)</option>
+						<option value="m">Mist</option>
+						<option value="d">Drizzle, or fine rain</option>
+						<option value="r">Rain</option>
+						<option value="e">Wet air without rain falling</option>
+						<option value="rs">Sleet (rain and snow together)</option>
+						<option value="s">Snow</option>
+						<option value="f">Fog</option>
+						<option value="fe">Wet fog</option>
+						<option value="u">Ugly, threatening sky</option>
+						<option value="g">Gloomy</option>
+						<option value="V">Exceptional visibility (abnormally clear)</option>
+						<option value="h">Hail</option>
+						<option value="w">Dew</option>
+						<option value="i">Intermittent</option>
+						<option value="hoar">Hoar frost</option>
+						<option value="KQ">Line Squall</option>
+						<option value="q">Squalls</option>
+						<option value="y">Dry air</option>
+						<option value="!">Lightning</option>
+						<option value="z">Dust haze</option>
+						<option value="t">Thunder</option>
+						<option value="sh">Passing showers</option>
+					</datalist>
+				</div>
+				<div class="form-group">
+					<label for="visibility">Visibility</label>
+	
+					<input
+						list="visibility-options"
+						name="visibility"
+						id="visibility" />
+					<datalist id="visibility-options">
+						<option
+							value="0"
+							label="Dense fog (not visible at 50 yards)"></option>
+						<option
+							value="1"
+							label="Thick fog (not visible at 1 cable)"></option>
+						<option
+							value="2"
+							label="Fog (not visible at 2 cables)"></option>
+						<option
+							value="3"
+							label="Moderate fog (not visible at ½ mile)"></option>
+						<option
+							value="4"
+							label="Mist/haze (not visible at 1 mile)"></option>
+						<option
+							value="5"
+							label="Poor visibility (not visible at 2 miles)"></option>
+						<option
+							value="6"
+							label="Moderate visibility (not visible at 5 miles)"></option>
+						<option
+							value="7"
+							label="Good visibility (not visible at 10 miles)"></option>
+						<option
+							value="8"
+							label="Very good visibility (not visible at 30 miles)"></option>
+						<option
+							value="9"
+							label="Excellent visibility (visible > 30 miles)"></option>
+					</datalist>
+				</div>
+				<div class="form-group">
+					<label for="wind">Wind direction</label>
+	
+					<input
+						list="wind-directions"
+						name="wind"
+						id="wind"
+						placeholder="N" />
+	
+					<datalist id="wind-directions">
+						<option
+							value="N"
+							label="North"></option>
+						<option
+							value="NNE"
+							label="North-Northeast"></option>
+						<option
+							value="NE"
+							label="Northeast"></option>
+						<option
+							value="ENE"
+							label="East-Northeast"></option>
+						<option
+							value="E"
+							label="East"></option>
+						<option
+							value="ESE"
+							label="East-Southeast"></option>
+						<option
+							value="SE"
+							label="Southeast"></option>
+						<option
+							value="SSE"
+							label="South-Southeast"></option>
+						<option
+							value="S"
+							label="South"></option>
+						<option
+							value="SSW"
+							label="South-Southwest"></option>
+						<option
+							value="SW"
+							label="Southwest"></option>
+						<option
+							value="WSW"
+							label="West-Southwest"></option>
+						<option
+							value="W"
+							label="West"></option>
+						<option
+							value="WNW"
+							label="West-Northwest"></option>
+						<option
+							value="NW"
+							label="Northwest"></option>
+						<option
+							value="NNW"
+							label="North-Northwest"></option>
+					</datalist>
+				</div>
+				<div class="form-group">
+					<label for="sea-condition-options">Sea state</label>
+					<input
+						list="sea-condition-options"
+						id="sea-condition-options"
+						name="seaCondition"
+						placeholder="0-12"
+						maxlength="2" />
+					<datalist id="sea-condition-options">
+						<option value="0">Calm (glassy)</option>
+						<option value="1">Calm (rippled)</option>
+						<option value="2">Smooth (wavelets)</option>
+						<option value="3">Slight</option>
+						<option value="4">Moderate</option>
+						<option value="5">Rough</option>
+						<option value="6">Very rough</option>
+						<option value="7">High</option>
+						<option value="8">Very high</option>
+						<option value="9">Strong storm</option>
+						<option value="10">Violent storm</option>
+						<option value="11">Hurricane force</option>
+						<option value="12">Hurricane (extreme)</option>
+					</datalist>
+				</div>
+			</fieldset>
 
-			<button type="submit">Сохранить изменения</button>
+			<fieldset class="radar-performance">
+				<legend>Radar Performance</legend>
+				<div class="radar-band-performance">
+					<h4>S-Band</h4>
+					<label for="runSBand">Run:</label>
+					<input
+						type="number"
+						id="runSBand"
+						name="runSBand" />
+					<label for="totalSBandTx">Total Tx:</label>
+					<input
+						type="number"
+						id="totalSBandTx"
+						name="totalSBandTx" />
+					<label for="totalSBandTTL">Total TTL:</label>
+					<input
+						type="number"
+						id="totalSBandTTL"
+						name="totalSBandTTL" />
+				</div>
+				<div class="radar-band">
+					<h4>X-Band</h4>
+					<label for="runXBand">Run:</label>
+					<input
+						type="number"
+						id="runXBand"
+						name="runXBand" />
+					<label for="totalXBandTx">Total Tx:</label>
+					<input
+						type="number"
+						id="totalXBandTx"
+						name="totalXBandTx" />
+					<label for="totalXBandTTL">Total TTL:</label>
+					<input
+						type="number"
+						id="totalXBandTTL"
+						name="totalXBandTTL" />
+				</div>
+			</fieldset>
+
+			<button type="submit">Save</button>
 			<button
 				type="button"
 				id="cancel-btn">
-				Отмена
+				Cancel
 			</button>
 		</form>
 
