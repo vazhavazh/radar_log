@@ -5,15 +5,15 @@
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0" />
-		<title>Edit entry</title>
+		<title>Add entry</title>
 		<link
 			rel="stylesheet"
 			href="styles.css" />
 	</head>
 	<body>
 		<div class="edit-container">
-			<h1>Edit entry</h1>
-			<form id="edit-form">
+			<h1>Add entry</h1>
+			<form id="add-form">
 				<div class="form-group">
 					<label for="datetime">DATE/TIME (UTC)</label>
 					<input
@@ -32,12 +32,14 @@
 							type="text"
 							id="latitude-degrees"
 							name="latitude-degrees"
+							placeholder="53°"
 							required />
 						<label for="latitude-minutes">Minutes</label>
 						<input
 							type="text"
 							id="latitude-minutes"
 							name="latitude-minutes"
+							placeholder="20.5'"
 							required />
 						<label for="latitude">Sign</label>
 						<select
@@ -54,12 +56,14 @@
 							type="text"
 							id="longitude-degrees"
 							name="longitude-degrees"
+							placeholder="004°"
 							required />
 						<label for="longitude-minutes">Minutes</label>
 						<input
 							type="text"
 							id="longitude-minutes"
 							name="longitude-minutes"
+							placeholder="02.5'"
 							required />
 						<label for="longitude">Sign</label>
 						<select
@@ -358,6 +362,6 @@
 			</form>
 	
 		</div>
-		<script src="./js/editLog.js"></script>
+		<script src="./js/addLog.js"></script>
 	</body>
 </html>

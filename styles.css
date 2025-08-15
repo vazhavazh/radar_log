@@ -81,7 +81,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 	display: block;
 }
 .logbook-table tr {
-position: relative;
+	position: relative;
 }
 
 .tabs {
@@ -131,15 +131,18 @@ form table {
 	border-collapse: separate;
 	border-spacing: 0;
 	border-radius: 6px;
-	
 
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.log-operations-table {
+	box-shadow: none;
 }
 
 table,
 .logbook-table,
 .installation-table {
-	/* border-collapse: collapse; */
+	
 	font-size: 13px;
 }
 
@@ -147,7 +150,7 @@ table,
 	scale: 0.95;
 }
 
-/* Стили для ячеек всех таблиц */
+
 table th,
 table td,
 .logbook-table th,
@@ -161,7 +164,7 @@ table td,
 	height: 18px;
 }
 
-/* Стили для редактируемых ячеек */
+
 table td[contenteditable="true"] {
 	cursor: text;
 	background-color: var(--bg-color);
@@ -176,7 +179,7 @@ table td[contenteditable="true"]:focus {
 	background-color: var(--bg-light-white);
 }
 
-/* Стили для всех input в таблицах */
+
 table input,
 table select,
 .logbook-table input,
@@ -193,7 +196,7 @@ table select,
 	box-sizing: border-box;
 }
 
-/* Специальные размеры */
+
 .min-w-2 {
 	min-width: 2.5rem;
 }
@@ -206,13 +209,13 @@ table select,
 	min-width: 7rem;
 }
 
-/* Стили для подзаголовков */
+
 .sub {
 	font-size: 10px;
 	font-style: italic;
 }
 
-/* Стили для форм с таблицами */
+
 #log-form-particulars {
 	display: flex;
 	flex-direction: column;
@@ -227,7 +230,7 @@ table select,
 	max-width: 60vw;
 }
 
-/* Стили для кнопок */
+
 .logbook-footer {
 	margin-top: 20px;
 	text-align: center;
@@ -245,7 +248,6 @@ table select,
 }
 
 .logbook-footer button:hover {
-	
 	background: var(--sidebar-link-active);
 }
 
@@ -460,4 +462,44 @@ button[style*="background: #6c757d"]:hover {
 
 .unfilled {
 	background-color: var(--main-color);
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* EDIT HTML STYLES */
+
+.edit-container {
+	padding: 2rem;
+	border: 2px var(--main-color) solid;
+}
+
+fieldset,
+.form-group {
+	margin-bottom: 1rem;
+}
+
+fieldset legend {
+	font-style: italic;
+}
+
+fieldset h4 {
+	margin-bottom: 1rem;
+}
+.weather-group .form-group,
+.other-group .form-group {
+	display: flex;
+	margin-bottom: 1rem;
+}
+.weather-group legend,
+.other-group legend {
+	margin-bottom: 1rem;
+}
+
+.weather-group label,
+.other-group label {
+	display: block;
+	min-width: 10rem;
+}
+
+.radar-band-performance label:last-of-type {
+	margin-left: 1rem;
 }

@@ -11,24 +11,24 @@ export const formSubmit = () => {
 	};
 
 	// Draft Management
-	function saveDraft() {
-		const templateRow = document.getElementById("template-row");
-		const draft = {};
-		templateRow.querySelectorAll("input, select").forEach((field) => {
-			draft[field.name] = field.value;
-		});
-		localStorage.setItem(TEMP_KEY, JSON.stringify(draft));
-	}
+	// function saveDraft() {
+	// 	const templateRow = document.getElementById("template-row");
+	// 	const draft = {};
+	// 	templateRow.querySelectorAll("input, select").forEach((field) => {
+	// 		draft[field.name] = field.value;
+	// 	});
+	// 	localStorage.setItem(TEMP_KEY, JSON.stringify(draft));
+	// }
 
-	function loadDraft() {
-		const templateRow = document.getElementById("template-row");
-		const draft = JSON.parse(localStorage.getItem(TEMP_KEY)) || {};
-		templateRow.querySelectorAll("input, select").forEach((field) => {
-			if (draft[field.name]) {
-				field.value = draft[field.name];
-			}
-		});
-	}
+	// function loadDraft() {
+	// 	const templateRow = document.getElementById("template-row");
+	// 	const draft = JSON.parse(localStorage.getItem(TEMP_KEY)) || {};
+	// 	templateRow.querySelectorAll("input, select").forEach((field) => {
+	// 		if (draft[field.name]) {
+	// 			field.value = draft[field.name];
+	// 		}
+	// 	});
+	// }
 
 	// Storage Management
 	const saveToStorage = (entries) => {
@@ -60,18 +60,17 @@ export const formSubmit = () => {
 		const templateClone = templateRow.cloneNode(true);
 		tbody.innerHTML = "";
 		tbody.appendChild(templateClone);
-
-		
+		templateClone.style.display = "none";
 
 		sortedData.forEach((entry) => {
 			const row = createEditableRow(entry);
 			tbody.appendChild(row);
 		});
 
-		templateClone.querySelectorAll("input, select").forEach((field) => {
-			field.addEventListener("input", saveDraft);
-			field.addEventListener("change", saveDraft);
-		});
+		// templateClone.querySelectorAll("input, select").forEach((field) => {
+		// 	field.addEventListener("input", saveDraft);
+		// 	field.addEventListener("change", saveDraft);
+		// });
 	};
 
 	// Row Creation and Editing
@@ -233,51 +232,57 @@ export const formSubmit = () => {
 		}
 	};
 
-	// Form Submission
-	form.addEventListener("submit", (e) => {
+	const addButton = document.querySelector("#add-record");
+	addButton.addEventListener("click", (e) => {
 		e.preventDefault();
-
-		const templateRow = document.getElementById("template-row");
-		const newEntry = {
-			id: generateId(),
-		};
-		let isValid = true;
-
-		templateRow.querySelectorAll("input, select").forEach((field) => {
-			const value = field.value.trim();
-			newEntry[field.name] = value;
-
-			if (!value) {
-				isValid = false;
-				field.style.border = "0.5px solid red";
-				field.title = "This entry is required";
-			} else {
-				field.style.border = "";
-				field.title = "";
-			}
-		});
-
-		if (!isValid) {
-			alert("Please fill all entries");
-			return;
-		}
-
-		const data = JSON.parse(localStorage.getItem("operation_log")) || [];
-		data.push(newEntry);
-		saveToStorage(data);
-		localStorage.removeItem(TEMP_KEY);
-
-		templateRow.querySelectorAll("input").forEach((input) => {
-			if (input.type !== "submit") input.value = "";
-		});
-		templateRow.querySelectorAll("select").forEach((select) => {
-			select.selectedIndex = 0;
-		});
-
-		loadFromStorage();
+		window.location.href = "add.html";
 	});
+
+	// Form Submission
+	// form.addEventListener("submit", (e) => {
+	// 	e.preventDefault();
+
+	// 	const templateRow = document.getElementById("template-row");
+	// 	const newEntry = {
+	// 		id: generateId(),
+	// 	};
+	// 	let isValid = true;
+
+	// 	templateRow.querySelectorAll("input, select").forEach((field) => {
+	// 		const value = field.value.trim();
+	// 		newEntry[field.name] = value;
+
+	// 		if (!value) {
+	// 			isValid = false;
+	// 			field.style.border = "0.5px solid red";
+	// 			field.title = "This entry is required";
+	// 		} else {
+	// 			field.style.border = "";
+	// 			field.title = "";
+	// 		}
+	// 	});
+
+	// 	if (!isValid) {
+	// 		alert("Please fill all entries");
+	// 		return;
+	// 	}
+
+	// 	const data = JSON.parse(localStorage.getItem("operation_log")) || [];
+	// 	data.push(newEntry);
+	// 	saveToStorage(data);
+	// 	localStorage.removeItem(TEMP_KEY);
+
+	// 	templateRow.querySelectorAll("input").forEach((input) => {
+	// 		if (input.type !== "submit") input.value = "";
+	// 	});
+	// 	templateRow.querySelectorAll("select").forEach((select) => {
+	// 		select.selectedIndex = 0;
+	// 	});
+
+	// 	loadFromStorage();
+	// });
 
 	// Initialization
 	loadFromStorage();
-	loadDraft();
+	// loadDraft();
 };
