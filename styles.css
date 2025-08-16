@@ -142,14 +142,12 @@ form table {
 table,
 .logbook-table,
 .installation-table {
-	
 	font-size: 13px;
 }
 
 #log .logbook-table {
 	scale: 0.95;
 }
-
 
 table th,
 table td,
@@ -164,7 +162,6 @@ table td,
 	height: 18px;
 }
 
-
 table td[contenteditable="true"] {
 	cursor: text;
 	background-color: var(--bg-color);
@@ -178,7 +175,6 @@ table td[contenteditable="true"]:focus {
 	outline: 2px solid var(--sidebar-link-active);
 	background-color: var(--bg-light-white);
 }
-
 
 table input,
 table select,
@@ -196,7 +192,6 @@ table select,
 	box-sizing: border-box;
 }
 
-
 .min-w-2 {
 	min-width: 2.5rem;
 }
@@ -209,12 +204,10 @@ table select,
 	min-width: 7rem;
 }
 
-
 .sub {
 	font-size: 10px;
 	font-style: italic;
 }
-
 
 #log-form-particulars {
 	display: flex;
@@ -229,7 +222,6 @@ table select,
 	min-width: 60vw;
 	max-width: 60vw;
 }
-
 
 .logbook-footer {
 	margin-top: 20px;
@@ -466,6 +458,12 @@ button[style*="background: #6c757d"]:hover {
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 /* EDIT HTML STYLES */
+
+#add-form input,
+#edit-form input {
+	padding: 4px;
+	padding-left: 8px;
+}
 
 .edit-container {
 	padding: 2rem;

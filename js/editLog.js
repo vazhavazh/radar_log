@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			updatedEntry[field.name] = value;
 
 			// Проверяем обязательные поля
-			if (field.hasAttribute("required") && !value) {
+			if ( !value) {
 				isValid = false;
 				field.style.border = "2px solid red";
 				console.log(`Empty entry: ${field.name}`);

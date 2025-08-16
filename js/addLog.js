@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
 	// Generate ID for new entry
 	const generateId = () => {
@@ -25,9 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
 			newEntry[field.name] = value;
 
 			// Check required fields
-			if (field.hasAttribute("required") && !value) {
+			if (!value) {
 				isValid = false;
 				field.style.border = "2px solid red";
+				
 				console.log(`Empty required field: ${field.name}`);
 			} else {
 				field.style.border = "";
@@ -35,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 
 		if (!isValid) {
-			alert("Please fill all required fields!");
+			alert("Please fill all entries!"); // Только один alert
 			return;
 		}
 

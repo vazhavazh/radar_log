@@ -22,7 +22,7 @@
 						name="datetime"
 						required />
 				</div>
-	
+
 				<fieldset class="position-group">
 					<legend>Ship's Position</legend>
 					<div class="lat-lon-group">
@@ -74,49 +74,55 @@
 						</select>
 					</div>
 				</fieldset>
-	
+
 				<fieldset class="radar-group">
 					<legend>Radars</legend>
-	
+
 					<div class="radar-band">
 						<h4>X-Band</h4>
 						<label for="runXBand">Run:</label>
 						<input
 							type="number"
 							id="runXBand"
-							name="runXBand" />
+							name="runXBand"
+							placeholder="hours" />
 						<label for="totalXBandTx">Total Tx:</label>
 						<input
 							type="number"
 							id="totalXBandTx"
-							name="totalXBandTx" />
+							name="totalXBandTx"
+							placeholder="hours" />
 						<label for="totalXBandTTL">Total TTL:</label>
 						<input
 							type="number"
 							id="totalXBandTTL"
-							name="totalXBandTTL" />
+							name="totalXBandTTL"
+							placeholder="hours" />
 					</div>
-	
+
 					<div class="radar-band">
 						<h4>S-Band</h4>
 						<label for="runSBand">Run:</label>
 						<input
 							type="number"
 							id="runSBand"
-							name="runSBand" />
+							name="runSBand"
+							placeholder="hours" />
 						<label for="totalSBandTx">Total Tx:</label>
 						<input
 							type="number"
 							id="totalSBandTx"
-							name="totalSBandTx" />
+							name="totalSBandTx"
+							placeholder="hours" />
 						<label for="totalSBandTTL">Total TTL:</label>
 						<input
 							type="number"
 							id="totalSBandTTL"
-							name="totalSBandTTL" />
+							name="totalSBandTTL"
+							placeholder="hours" />
 					</div>
 				</fieldset>
-	
+
 				<fieldset class="weather-group">
 					<legend>Weather Options</legend>
 					<div class="form-group">
@@ -125,7 +131,7 @@
 							list="weather-options"
 							id="weather"
 							maxlength="3"
-							name="weather" />
+							name="weather" placeholder="b" />
 						<datalist id="weather-options">
 							<option value="b">Blue sky (less than 1/3 covered)</option>
 							<option value="be">Sky partly cloudy (1/3 to 2/3)</option>
@@ -141,7 +147,9 @@
 							<option value="fe">Wet fog</option>
 							<option value="u">Ugly, threatening sky</option>
 							<option value="g">Gloomy</option>
-							<option value="V">Exceptional visibility (abnormally clear)</option>
+							<option value="V">
+								Exceptional visibility (abnormally clear)
+							</option>
 							<option value="h">Hail</option>
 							<option value="w">Dew</option>
 							<option value="i">Intermittent</option>
@@ -157,11 +165,12 @@
 					</div>
 					<div class="form-group">
 						<label for="visibility">Visibility</label>
-	
+
 						<input
 							list="visibility-options"
 							name="visibility"
-							id="visibility" />
+							type="number"
+							id="visibility" placeholder="7" />
 						<datalist id="visibility-options">
 							<option
 								value="0"
@@ -197,13 +206,13 @@
 					</div>
 					<div class="form-group">
 						<label for="wind">Wind direction</label>
-	
+
 						<input
 							list="wind-directions"
 							name="wind"
 							id="wind"
 							placeholder="N" />
-	
+
 						<datalist id="wind-directions">
 							<option
 								value="N"
@@ -255,7 +264,7 @@
 								label="North-Northwest"></option>
 						</datalist>
 					</div>
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label for="sea-condition-options">Sea state</label>
 						<input
 							list="sea-condition-options"
@@ -278,12 +287,38 @@
 							<option value="11">Hurricane force</option>
 							<option value="12">Hurricane (extreme)</option>
 						</datalist>
-					</div>
+					</div> -->
+				
+				<div class="form-group">
+  <label for="seaCondition">Sea state</label>
+  <input
+    list="sea-condition-options"
+    id="seaCondition"
+    name="seaCondition"
+    placeholder="0-12"
+    maxlength="2" />
+  <datalist id="sea-condition-options">
+    <option value="0">Calm (glassy)</option>
+    <option value="1">Calm (rippled)</option>
+    <option value="2">Smooth (wavelets)</option>
+    <option value="3">Slight</option>
+    <option value="4">Moderate</option>
+    <option value="5">Rough</option>
+    <option value="6">Very rough</option>
+    <option value="7">High</option>
+    <option value="8">Very high</option>
+    <option value="9">Strong storm</option>
+    <option value="10">Violent storm</option>
+    <option value="11">Hurricane force</option>
+    <option value="12">Hurricane (extreme)</option>
+  </datalist>
+</div>
+
 				</fieldset>
-	
+
 				<fieldset class="radar-performance">
 					<legend>Radar Performance</legend>
-	
+
 					<div class="radar-band-performance">
 						<h4>X-Band</h4>
 						<label for="transmitterX">Transmitter:</label>
@@ -301,7 +336,7 @@
 							placeholder="dB"
 							step="0.1" />
 					</div>
-	
+
 					<div class="radar-band-performance">
 						<h4>S-Band</h4>
 						<label for="transmitterS">Transmitter:</label>
@@ -320,47 +355,38 @@
 							step="0.1" />
 					</div>
 				</fieldset>
-	
+
 				<fieldset class="other-group">
 					<legend>Other</legend>
-	
+
 					<div class="form-group">
-						
 						<label for="remarks">Remarks:</label>
 						<input
 							type="text"
 							name="remarks"
 							id="remarks"
-							placeholder=""
-							 />
-						
-						
+							placeholder="" />
 					</div>
-	
+
 					<div class="form-group">
-						
 						<label for="signature">Signature:</label>
 						<input
 							type="text"
 							name="signature"
 							id="signature"
-							placeholder=""
-							 />
-						
-						
+							placeholder="" />
 					</div>
 				</fieldset>
-	
-			<div class="logbook-footer">
+
+				<div class="logbook-footer">
 					<button type="submit">Save</button>
 					<button
 						type="button"
 						id="cancel-btn">
 						Cancel
 					</button>
-			</div>
+				</div>
 			</form>
-	
 		</div>
 		<script src="./js/addLog.js"></script>
 	</body>
